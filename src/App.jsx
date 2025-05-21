@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom"
 import Navbar from "./component/navbar"
-
+import Intro from "./component/intro"
 
 function App() {
  
@@ -9,6 +9,7 @@ function App() {
  <>
  <BrowserRouter>
  <Navbar/>
+ <Intro/>
  </BrowserRouter>
  
  </>
