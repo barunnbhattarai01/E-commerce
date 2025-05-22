@@ -39,8 +39,8 @@ return(
 
 <>
  {product && product.map((product,index)=>(
- <div className=" flex  bg-white p-6 rounded-xl shadow-lg border border-gray-200 h-[400px] mt-7" key={product.id}>
-    <img src={product.image}/>
+ <div className=" grid grid-cols-subgrid  relative bg-white p-6 rounded-xl shadow-lg border border-gray-200 h-[600px] w-[800px] mt-7 dark:bg-black text-white " key={product.id}>
+    <img src={product.image} className="h-36"/>
     <div className="mx-auto">
     <p className=" font-bold text-3xl">{product.title}</p>
     <p className="text-2xl">PRICE:${product.price}</p>
@@ -51,7 +51,7 @@ return(
  {activeindex===index &&  (
 <>
  <button className="ml-96 border border-amber-200 cursor-pointer" onClick={()=>setactiveIndex(null)}>❌</button>
-<div className="h-32 flex flex-col justify-center items-center ">
+<div className="h-32 flex flex-col justify-center items-center absolute ">
 <span className="font-bold text-2xl">Name:<input type="text" className="border border-black rounded-2xl mt-1"/></span>
 <span className="font-bold text-2xl">Address:<input type="text" className="border border-black rounded-2xl mt-1"/></span>
 <span className="font-bold text-2xl">phone no:<input type="number" className="border border-black rounded-2xl mt-1"/></span>

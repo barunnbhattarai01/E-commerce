@@ -1,6 +1,32 @@
 import { Link } from "react-router-dom";
+import React from "react";
 
 function Navbar(){
+
+  //experminating the dark mode in chart button for now for learning
+
+
+  const[theme,settheme]=React.useState("light");
+
+  React.useEffect(()=>
+  {
+  if (theme==="light"){
+    document.documentElement.classList.add("dark");
+  }
+  else{
+    document.documentElement.classList.remove("dark")
+  }
+
+
+
+  },[theme] )
+
+
+  const handlesubmit=()=>{
+    settheme(theme==="light" ? "dark": "light")
+  }
+
+
 
 
 return(
@@ -10,8 +36,9 @@ return(
   <Link to="/" className="focus:bg-blue-300 h-10 w-20 ">Home</Link>
     <Link to="/services" className="focus:bg-blue-300 h-10 w-24">Services</Link>
 <Link to="/product" className="focus:bg-blue-300 h-10 w-24">Products</Link>
+ <Link to="/chart" className="focus:bg-blue-300 h-10 w-16">Chart</Link>
 
-  <Link to="/chart" className="focus:bg-blue-300 h-10 w-16">Chart</Link>
+<button className="focus:bg-blue-300 h-10 w-16" onClick={handlesubmit}>Button</button>
 
 
   </div>
