@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-function Navbar(){
+function Navbar({onsearch}){
 
   //experminating the dark mode in chart button for now for learning
 
-
+ const[query,setquery]=React.useState("")
   const[theme,settheme]=React.useState("light");
-
   React.useEffect(()=>
   {
-  if (theme==="light"){
+  if (theme==="dark"){
     document.documentElement.classList.add("dark");
   }
   else{
@@ -19,12 +18,26 @@ function Navbar(){
 
 
 
-  },[theme] )
+  },[theme] ) //useeffect run when the themes change and themese change through the button
 
 
-  const handlesubmit=()=>{
+  const toggle=()=>{
     settheme(theme==="light" ? "dark": "light")
   }
+
+
+
+  //search button
+  const handlesubmit =(e)=>
+  {
+  e.preventDefault();
+if(query.trim()){
+     search(query.trim())
+}
+
+
+  }
+
 
 
 
@@ -38,17 +51,15 @@ return(
 <Link to="/product" className="focus:bg-blue-300 h-10 w-24">Products</Link>
  <Link to="/chart" className="focus:bg-blue-300 h-10 w-16">Chart</Link>
 
-<button className="focus:bg-blue-300 h-10 w-16" onClick={handlesubmit}>Button</button>
+<button className="focus:bg-blue-300 h-10 w-16" onClick={toggle}>Button</button>
 
 
   </div>
-  
+  <form onSubmit={handlesubmit}>
   <div className="">
-   <span>🔍 <input type="text" className="border border-amber-200 rounded-2xl shadow-lg mt-3"/></span>
+   <button type="submit" className="border border-amber-100 cursor-pointer">Submit</button> <input type="text" className="border border-amber-200 text-black rounded-2xl shadow-lg mt-3" value={query} onChange={(e)=>setquery(e.target.value)}/>
   </div>
-
-
-
+</form>
 
  </div>
  

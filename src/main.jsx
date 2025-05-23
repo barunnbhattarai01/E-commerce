@@ -19,7 +19,7 @@ element:<><Navbar/><Intro/></>
    },
     {
 path:"/services",
-element:<><Navbar/><Services/></>
+element:<><Services/></>
 
    },
 

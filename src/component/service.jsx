@@ -1,4 +1,5 @@
 import React from "react"
+import Navbar from "./navbar";
 
 function Services(){
 
@@ -6,6 +7,7 @@ const[product,setProduct]=React.useState([]);
 const[buy,setbuy]=React.useState();
 const[activeindex,setactiveIndex]=React.useState(null); //it is used to open the div and close the div of name address and phone number
 const[close,setCLose]=React.useState("");
+  const[search,setsearch]=React.useState("")
 
 
 
@@ -30,6 +32,19 @@ React.useEffect(()=>
 },[])
 
 
+//search
+
+const handlesubmit=(query)=>{
+fetch("https://fakestoreapi.com/products")
+.then((res)=>res.json())
+.then((data)=>{
+    const filtered=data.filter((product)=>{
+        product.title.toLowerCase().includes(query.toLowerCase())
+    });
+    setsearch(filtered)
+})
+.catch((err)=>console.error("error",err))
+}
 
 
 
@@ -38,29 +53,35 @@ React.useEffect(()=>
 return(
 
 <>
+<Navbar onsearch={search}/>
+<div className="flex flex-wrap gap-20 justify-center p-20">
  {product && product.map((product,index)=>(
- <div className=" grid grid-cols-subgrid  relative bg-white p-6 rounded-xl shadow-lg border border-gray-200 h-[600px] w-[800px] mt-7 dark:bg-black text-white " key={product.id}>
+ <div className=" overflow-x-hidden relative text-black bg-white p-6 rounded-xl shadow-lg border border-gray-200  w-[600px]  mt-7 dark:bg-black dark:text-white overflow-y-hidden max-h-500" key={product.id}>
     <img src={product.image} className="h-36"/>
-    <div className="mx-auto">
+    <div className="mx-auto ">
     <p className=" font-bold text-3xl">{product.title}</p>
     <p className="text-2xl">PRICE:${product.price}</p>
     <p className="text-2xl">{product.description}</p>
-     <button className="ml-96 border border-amber-200 p-3 rounded-2xl hover:bg-amber-200" onClick={()=>afterapply(index)} >BUY</button>
+     <button className=" border border-amber-200 p-3 rounded-2xl hover:bg-amber-200" onClick={()=>afterapply(index)} >BUY</button>
 
  
  {activeindex===index &&  (
 <>
+<div className="flex items-center justify-center w-full absolute top-40 left-0 px-5">
+<div className="  bg-rose-300 p-10 overflow-x-hidden shadow-2xl rounded-2xl shadow-blue-200 left-0 w-150 h-60 overflow-y-auto">
  <button className="ml-96 border border-amber-200 cursor-pointer" onClick={()=>setactiveIndex(null)}>❌</button>
-<div className="h-32 flex flex-col justify-center items-center absolute ">
-<span className="font-bold text-2xl">Name:<input type="text" className="border border-black rounded-2xl mt-1"/></span>
-<span className="font-bold text-2xl">Address:<input type="text" className="border border-black rounded-2xl mt-1"/></span>
-<span className="font-bold text-2xl">phone no:<input type="number" className="border border-black rounded-2xl mt-1"/></span>
-<button className="border border-black rounded-2xl w-16 mx-auto mt-2 hover:bg-blue-300 ">Buy</button>
+<div className=" flex flex-col justify-center items-center  ">
+<label className="font-bold text-[20px]">Name</label>
+    <input type="text" className="border border-black rounded-2xl mt-1 p-2" placeholder="eg Barun Bhattarai"/>
+<label className="font-bold text-[20px]">Address</label>
+    <input type="text" className="border border-black rounded-2xl mt-1 p-2"/>
+<label className="font-bold text-[20px]">phone no</label>
+<input type="number" className="border border-black rounded-2xl mt-1 p-2"/>
+<button className="border border-black rounded-2xl w-16 mx-auto mt-2 hover:bg-blue-300 p-2 ">Buy</button>
+</div>
 </div>
 
-
-
-
+</div>
  </>
  )}
 
@@ -72,7 +93,7 @@ return(
 
 }
 
-
+</div>
 
 
 </>
