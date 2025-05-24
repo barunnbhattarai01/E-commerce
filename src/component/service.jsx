@@ -1,13 +1,12 @@
 import React from "react"
-import Navbar from "./navbar";
+
 
 function Services(){
 
 const[product,setProduct]=React.useState([]);
-const[buy,setbuy]=React.useState();
 const[activeindex,setactiveIndex]=React.useState(null); //it is used to open the div and close the div of name address and phone number
 const[close,setCLose]=React.useState("");
-  const[search,setsearch]=React.useState("")
+
 
 
 
@@ -26,7 +25,8 @@ React.useEffect(()=>
 
     .then(res=>res.json())
     .then(data=>{setProduct(data),
-        console.log(data)
+        setsearch(data)
+    console.log(data)
     })
     .catch(err=>console.error("error",err))
 },[])
@@ -34,17 +34,6 @@ React.useEffect(()=>
 
 //search
 
-const handlesubmit=(query)=>{
-fetch("https://fakestoreapi.com/products")
-.then((res)=>res.json())
-.then((data)=>{
-    const filtered=data.filter((product)=>{
-        product.title.toLowerCase().includes(query.toLowerCase())
-    });
-    setsearch(filtered)
-})
-.catch((err)=>console.error("error",err))
-}
 
 
 
@@ -53,7 +42,7 @@ fetch("https://fakestoreapi.com/products")
 return(
 
 <>
-<Navbar onsearch={search}/>
+
 <div className="flex flex-wrap gap-20 justify-center p-20">
  {product && product.map((product,index)=>(
  <div className=" overflow-x-hidden relative text-black bg-white p-6 rounded-xl shadow-lg border border-gray-200  w-[600px]  mt-7 dark:bg-black dark:text-white overflow-y-hidden max-h-500" key={product.id}>
@@ -94,6 +83,8 @@ return(
 }
 
 </div>
+
+
 
 
 </>

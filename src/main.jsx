@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import Product from './component/product.jsx'
 
 import {
   createBrowserRouter,  RouterProvider}  from "react-router-dom"
@@ -19,7 +20,12 @@ element:<><Navbar/><Intro/></>
    },
     {
 path:"/services",
-element:<><Services/></>
+element:<><Navbar/><Services/></>
+
+   },
+   {
+   path:"/product",
+element:<><Navbar/><Product/></>
 
    },
 

@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-function Navbar({onsearch}){
+function Navbar(){
 
   //experminating the dark mode in chart button for now for learning
 
- const[query,setquery]=React.useState("")
   const[theme,settheme]=React.useState("light");
   React.useEffect(()=>
   {
@@ -27,22 +26,13 @@ function Navbar({onsearch}){
 
 
 
-  //search button
-  const handlesubmit =(e)=>
-  {
-  e.preventDefault();
-if(query.trim()){
-     search(query.trim())
-}
-
-
-  }
 
 
 
 
 
 return(
+  <>
  <div className="flex bg-white shadow-lg h-24 mt-2 ">
   <div className="flex items-center"><img src="./logo-3030.webp" className="h-10 w-20 "/></div>
   <div className="text-2xl mx-auto flex space-x-16 ">
@@ -55,16 +45,15 @@ return(
 
 
   </div>
-  <form onSubmit={handlesubmit}>
   <div className="">
-   <button type="submit" className="border border-amber-100 cursor-pointer">Submit</button> <input type="text" className="border border-amber-200 text-black rounded-2xl shadow-lg mt-3" value={query} onChange={(e)=>setquery(e.target.value)}/>
+   <button type="submit" className="border border-amber-100 cursor-pointer">Submit</button> <input type="text" className="border border-amber-200 text-black rounded-2xl shadow-lg mt-3"/>
   </div>
-</form>
+
 
  </div>
  
 
-
+</>
 )
 
 
