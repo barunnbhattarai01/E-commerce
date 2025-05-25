@@ -18,11 +18,11 @@ const info=async(e)=>{
  try{
    await signInWithEmailAndPassword(auth,username,password);
    console.log("login sucessfully");
-   navigate(/home)
+   navigate("/home")
 
  }
- catch{
-    console.error("Error");
+ catch(err){
+    console.error("Error",err);
    seterror("invalid password")
  }
 
@@ -31,12 +31,15 @@ const info=async(e)=>{
 }
 
 return(
-<div className="">
- <form onSubmit={info}>
- <div className="">
-    <label className="">Name:<input type="email" value={username} onChange={(e)=>setusername(e.target.value)}/></label>
-      <label className="">Password:<input type="password" value={password} onChange={(e)=>setpassword(e.target.value)}/></label>
-      <button type="submit">Log in</button>
+<div className=" ">
+ <form onSubmit={info} className="flex justify-center items-center">
+ <div className="flex flex-col justify-center  mt-[350px] border border-black h-52 p-5 rounded-2xl">
+    <label className="text-2xl text-white">Username:<input type="email" value={username} onChange={(e)=>setusername(e.target.value)}
+     className="border border-white rounded-2xl ml-1"
+    /></label>
+      <label className="text-2xl text-white mt-4">Password:<input type="password" value={password} onChange={(e)=>setpassword(e.target.value)}
+      className="border border-white rounded-2xl ml-3"/></label>
+      <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200">Log in</button>
  </div>
 
 
