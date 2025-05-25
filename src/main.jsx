@@ -11,6 +11,7 @@ import {
 import Navbar from './component/navbar.jsx';
 import Intro from './component/intro.jsx'
 import Services from './component/service.jsx'
+import Signup from './component/sigup.jsx'
 
    const router =createBrowserRouter(
     [
@@ -32,6 +33,11 @@ element:<><Navbar/><Services/></>
    {
    path:"/product",
 element:<><Navbar/><Product/></>
+
+   },
+   {
+   path:"/signup",
+element:<><Signup/></>
 
    },
 
