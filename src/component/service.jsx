@@ -1,4 +1,7 @@
 import React from "react"
+import { db } from "../../firebase.config";
+import { collection,addDoc,serverTimestamp } from "firebase/firestore";
+import Product from "./product";
 
 
 function Services(){
@@ -35,6 +38,38 @@ React.useEffect(()=>
 //search
 
 */
+const[name,setname]=React.useState("");
+const[quantity,setquantity]=React.useState('');
+const[product,setproduct]=React.useState('');
+const[submited,setsumbited]=React.useState('');
+const[event,setevent]=React.useState('');
+
+const takeit =async(e)=>{
+e.preventDefault();
+const data={
+    Name:name,
+    description:quantity
+}
+
+try{
+ await addDoc(collection(db,'event'),data);
+ setsumbited(data)
+setname("");
+setquantity("");
+
+
+}
+catch(err){
+ console.error("error happen",err)
+}
+
+
+
+
+}
+
+
+
 
 
 
@@ -84,6 +119,30 @@ return(
 
 </div>
 */}
+
+<div className=" ">
+ <form onSubmit={takeit} className="flex justify-center items-center">
+ <div className="flex flex-col justify-center  mt-[350px] border border-black h-52 p-5 rounded-2xl">
+    <label className="text-2xl text-white">product Name:<input type="text" value={name} onChange={(e)=>setname(e.target.value)}
+     className="border border-white rounded-2xl ml-1"
+    /></label>
+      <label className="text-2xl text-white mt-4">Description:<input type="text" value={quantity} onChange={(e)=>setquantity(e.target.value)}
+      className="border border-white rounded-2xl ml-3"/></label>
+      <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200"> Sell</button>
+    
+ </div>
+
+
+
+ </form>
+
+
+
+
+
+
+
+</div>
 
 
 
