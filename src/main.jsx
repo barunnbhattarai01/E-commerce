@@ -12,6 +12,7 @@ import Navbar from './component/navbar.jsx';
 import Intro from './component/intro.jsx'
 import Services from './component/service.jsx'
 import Signup from './component/sigup.jsx'
+import Getdata from './component/getproduct.jsx'
 
    const router =createBrowserRouter(
     [
@@ -32,7 +33,7 @@ element:<><Navbar/><Services/></>
    },
    {
    path:"/product",
-element:<><Navbar/><Product/></>
+element:<><Navbar/><Getdata/></>
 
    },
    {

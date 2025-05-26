@@ -40,19 +40,18 @@ React.useEffect(()=>
 */
 const[name,setname]=React.useState("");
 const[quantity,setquantity]=React.useState('');
-const[product,setproduct]=React.useState('');
 const[submited,setsumbited]=React.useState('');
-const[event,setevent]=React.useState('');
 
 const takeit =async(e)=>{
 e.preventDefault();
 const data={
     Name:name,
-    description:quantity
+    description:quantity,
+    createdAt:serverTimestamp()
 }
 
 try{
- await addDoc(collection(db,'event'),data);
+ await addDoc(collection(db,'detail'),data);
  setsumbited(data)
 setname("");
 setquantity("");
