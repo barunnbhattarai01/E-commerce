@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
-function Login(){
+function Adminlogin(){
 
 const[username,setusername]=React.useState("");
 const[password,setpassword]=React.useState("");
@@ -19,7 +19,7 @@ const info=async(e)=>{
  try{
    await signInWithEmailAndPassword(auth,username,password);
    console.log("login sucessfully");
-   navigate("/home")
+   navigate("/service")
 
  }
  catch(err){
@@ -41,8 +41,7 @@ return(
       <label className="text-2xl text-white mt-4">Password:<input type="password" value={password} onChange={(e)=>setpassword(e.target.value)}
       className="border border-white rounded-2xl ml-3"/></label>
       <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200">Log in</button>
-      <Link to="/signup" className="border border-black w-16 p-0.5 rounded-2xl hover:bg-blue-50 cursor-pointer mt-2">Signup</Link>
-      <Link to="/admin" className="border border-black w-24 p-0.5 rounded-2xl hover:bg-blue-50 cursor-pointer mt-2">Admin Login</Link>
+      <Link to="/signup">Signup</Link>
  </div>
 
 
@@ -64,4 +63,4 @@ return(
 
 
 }
-export default Login
+export default Adminlogin;

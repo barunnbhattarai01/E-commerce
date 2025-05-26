@@ -13,6 +13,7 @@ import Intro from './component/intro.jsx'
 import Services from './component/service.jsx'
 import Signup from './component/sigup.jsx'
 import Getdata from './component/getproduct.jsx'
+import Adminlogin from './component/adminlogin.jsx'
 
    const router =createBrowserRouter(
     [
@@ -26,13 +27,9 @@ path:"/home",
 element:<><Navbar/><Intro/></>
 
    },
-    {
-path:"/services",
-element:<><Navbar/><Services/></>
 
-   },
    {
-   path:"/product",
+   path:"/items",
 element:<><Navbar/><Getdata/></>
 
    },
@@ -41,6 +38,23 @@ element:<><Navbar/><Getdata/></>
 element:<><Signup/></>
 
    },
+
+   {
+   path:"/admin",
+element:<><Adminlogin/></>
+
+   },
+    {
+   path:"/service",
+element:<><Services/></>
+
+   },
+    {
+   path:"/products",
+element:<><Navbar/><Product/></>
+
+   },
+
 
 
 

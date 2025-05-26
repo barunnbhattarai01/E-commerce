@@ -15,7 +15,7 @@ useEffect(()=>{
    const document = await getDocs(q);
    
    const eventlist=document.docs.map(doc=>({
-    ...doc.data() //we get the existing data from database
+    ...doc.data() //we get the existing data from database and ..doc.data() take data as object
    }));
 
    setgeted(eventlist);
@@ -48,6 +48,7 @@ return(
  <div className="mx-auto ">
     <p className=" font-bold text-3xl">{items.Name}</p>
     <p className="text-2xl">{items.description}</p>
+          <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200">BUY</button>
     
 
 
