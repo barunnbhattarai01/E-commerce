@@ -3,7 +3,7 @@ import React from "react"
 
 function Services(){
 
-const[product,setProduct]=React.useState([]);
+/*const[product,setProduct]=React.useState([]);
 const[activeindex,setactiveIndex]=React.useState(null); //it is used to open the div and close the div of name address and phone number
 const[close,setCLose]=React.useState("");
 
@@ -34,7 +34,7 @@ React.useEffect(()=>
 
 //search
 
-
+*/
 
 
 
@@ -42,7 +42,7 @@ React.useEffect(()=>
 return(
 
 <>
-
+{/*
 <div className="flex flex-wrap gap-20 justify-center p-20">
  {product && product.map((product,index)=>(
  <div className=" overflow-x-hidden relative text-black bg-white p-6 rounded-xl shadow-lg border border-gray-200  w-[600px]  mt-7 dark:bg-black dark:text-white overflow-y-hidden max-h-500" key={product.id}>
@@ -83,7 +83,7 @@ return(
 }
 
 </div>
-
+*/}
 
 
 
