@@ -119,15 +119,19 @@ return(
 </div>
 */}
 
-<div className=" ">
- <form onSubmit={takeit} className="flex justify-center items-center">
- <div className="flex flex-col justify-center  mt-[350px] border border-black h-52 p-5 rounded-2xl">
-    <label className="text-2xl text-white">product Name:<input type="text" value={name} onChange={(e)=>setname(e.target.value)}
-     className="border border-white rounded-2xl ml-1"
-    /></label>
-      <label className="text-2xl text-white mt-4">Description:<input type="text" value={quantity} onChange={(e)=>setquantity(e.target.value)}
-      className="border border-white rounded-2xl ml-3"/></label>
-      <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200"> Sell</button>
+<div className=" flex justify-center content-center ">
+ <form onSubmit={takeit} className="">
+ <div className="flex flex-col justify-center mt-[350px] gap-3 w-96 h-auto border border-black h-52 p-5 rounded-2xl bg-white">
+    <label className="text-2xl text-black">product Name:
+        </label>
+        <input type="text" value={name} onChange={(e)=>setname(e.target.value)}
+     className="border border-black rounded-2xl ml-1 h-10"
+    />
+      <label className="text-2xl text-black mt-4">Description:
+        </label>
+        <input type="text" value={quantity} onChange={(e)=>setquantity(e.target.value)}
+      className="border border-black rounded-2xl ml-3 h-24 text-black text-[30px]"/>
+      <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200" onClick={()=>alert("product is added to items for sell")}> Sell</button>
     
  </div>
 
