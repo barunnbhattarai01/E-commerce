@@ -2,6 +2,9 @@ import { getDocs,collection,query } from "firebase/firestore";
 import { db } from "../../firebase.config";
 import {React,useState,useEffect} from "react";
 import { serverTimestamp,orderBy } from "firebase/firestore";
+
+
+
 function Getdata(){
 
 const[geted,setgeted]=useState([]);
@@ -41,6 +44,7 @@ fetchdata(); //we have to call it to mount one time
 
 return(
 <>
+<div className="flex flex-wrap gap-20 ml-9">
 {geted.map((items,index)=>(
    
  <div className="overflow-x-hidden relative text-black bg-white p-6 rounded-xl shadow-lg border border-gray-200  w-[600px]  mt-7 dark:bg-black dark:text-white overflow-y-hidden max-h-500" key={index} >
@@ -60,7 +64,7 @@ return(
 
 }
 
-
+</div>
 
 
 
