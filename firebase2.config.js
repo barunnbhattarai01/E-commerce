@@ -13,17 +13,17 @@ const firebaseSecondConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_SECOND_MEASUREMENT_ID,
 };
 
- let secondapp;
+let secondapp;
 
- const exists =getApps().find(app=>app.name==="secondapp");
+const exists = getApps().find(app=>app.name ==="secondapp") //getApps is read only array of the intialize app and find the app named as secondapp
 
- if(exists){
-    secondapp=exists;
- }
- else{
-    secondapp=initializeApp(firebaseSecondConfig,"secondapp")
- }
 
+if(exists){
+    secondapp=exists; // if it find already exists app name second appp then it reuse it rather then creating new one
+}
+else{
+    secondapp=initializeApp(firebaseSecondConfig,"secondapp") //oterwise it intialize the new app of secondapp  
+}
 
 
 const analytics = getAnalytics(secondapp);
