@@ -13,16 +13,16 @@ const firebaseSecondConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_SECOND_MEASUREMENT_ID,
 };
 
-let secondapp;
-const exist = getApps().find(app=>app.name==="secondapp"); //getapp helps to get app and find the app named second
+ let secondapp;
 
-if(exist){
-    secondapp=exist; // it exists then secondapp become existing config
-}
-else{
-    secondapp=initializeApp(firebaseSecondConfig,"secondapp") //ifnot then it intailize app
-}
+ const exists =getApps().find(app=>app.name==="secondapp");
 
+ if(exists){
+    secondapp=exists;
+ }
+ else{
+    secondapp=initializeApp(firebaseSecondConfig,"secondapp")
+ }
 
 
 
