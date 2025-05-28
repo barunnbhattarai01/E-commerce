@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from "../../firebase.config";
+import { auth2 } from "../../firebase2.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ const info=async(e)=>{
  seterror("");
 
  try{
-   await signInWithEmailAndPassword(auth,username,password);
+   await signInWithEmailAndPassword(auth2,username,password);
    console.log("login sucessfully");
    navigate("/service")
 
@@ -69,7 +69,7 @@ return(
         </button>
 
         <div className="flex justify-between text-sm text-blue-600 mt-2">
-          <Link to="/signup" className="hover:underline">Sign Up</Link>
+          
         </div>
       </div>
     </form>

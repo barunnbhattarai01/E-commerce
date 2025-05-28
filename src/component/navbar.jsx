@@ -14,6 +14,7 @@ function Navbar(){
   {
   if (theme==="dark"){
     document.documentElement.classList.add("dark");
+    document.body.style.backgroundColor="white"
   }
   else{
     document.documentElement.classList.remove("dark");

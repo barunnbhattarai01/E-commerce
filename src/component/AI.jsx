@@ -25,6 +25,7 @@ seterror("plese enter the prompt");
       const Genai=new GoogleGenerativeAI(apiKEy);
       const model =Genai.getGenerativeModel({model: "gemini-1.5-flash"})
       const result=await model.generateContent(prompt);
+   
       const textresponse = result.response.text();
     setresponse(textresponse);
 
@@ -47,14 +48,14 @@ return(
 
 <>
 
-<div className="flex flex-col gap-3">
+<div className="flex flex-col gap-3 items-center">
 <label className="text-2xl text-black">Enter the prompt</label>
 <input 
-className="border border-black focus:ring-2 focus:ring-blue-200 w-52 rounded-2xl"
+className="border border-black focus:ring-2 focus:ring-blue-200 w-52 rounded-2xl h-20"
 value={prompt}
 onChange={(e)=>setprompt(e.target.value)}
 />
-<button onClick={generatecontent} className=" cursor-pointer">Send</button>
+<button onClick={generatecontent} className=" cursor-pointer ">Send</button>
 </div>
 
 {error && <p>{error}</p>}
