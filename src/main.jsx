@@ -14,7 +14,7 @@ import Services from './component/service.jsx'
 import Signup from './component/sigup.jsx'
 import Getdata from './component/getproduct.jsx'
 import Adminlogin from './component/adminlogin.jsx'
-
+import Ai from './component/ai.jsx'
    const router =createBrowserRouter(
     [
       {
@@ -54,7 +54,11 @@ element:<><Services/></>
 element:<><Navbar/><Product/></>
 
    },
+   {
+   path:"/ai",
+element:<><Navbar/><Ai/></>
 
+   },
 
 
 
