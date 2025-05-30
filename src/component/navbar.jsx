@@ -79,13 +79,14 @@ return(
 
  {/*mobile view*/}
  <div className="md:hidden flex flex-col">
+
   {open &&(
-  <div className="flex flex-col items-end ">
+  <div className="flex flex-col items-end mr-5 ">
   <Link to="/home" className="">Home</Link>
     <Link to="/items" className="">Items</Link>
 <Link to="/products" className="">Products</Link>
  <Link to="/chart" className="">Chart</Link>
-
+<button className="" onClick={toggle}>{theme==="light"? "☀️":"🌙"}</button>
 </div>
 )}
  </div>
