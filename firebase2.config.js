@@ -22,7 +22,7 @@ if(exists){
     secondapp=exists; // if it find already exists app name second appp then it reuse it rather then creating new one
 }
 else{
-    secondapp=initializeApp(firebaseSecondConfig,"secondapp") //oterwise it intialize the new app of secondapp  
+    secondapp=initializeApp(firebaseSecondConfig,"secondapp"); //oterwise it intialize the new app of secondapp  
 }
 
 

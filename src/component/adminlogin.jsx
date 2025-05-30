@@ -9,7 +9,7 @@ function Adminlogin(){
 
 const[username,setusername]=React.useState("");
 const[password,setpassword]=React.useState("");
-const [error,seterror]=React.useState("")
+const [error,seterror]=React.useState("");
 const navigate =useNavigate();
 
 const info=async(e)=>{
