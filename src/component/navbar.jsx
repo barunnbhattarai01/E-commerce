@@ -79,7 +79,8 @@ return(
 
  {/*mobile view*/}
  <div className="md:hidden flex flex-col">
-
+  
+  {/* if open is true which means it is open and when it is open it show below detail*/}
   {open &&(
   <div className="flex flex-col items-end mr-5 ">
   <Link to="/home" className="">Home</Link>
