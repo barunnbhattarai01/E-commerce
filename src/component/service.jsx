@@ -45,7 +45,7 @@ const[quantity,setquantity]=React.useState('');
 const[submited,setsumbited]=React.useState('');
 const[img,setimg]=React.useState('');
 
-const takeit =async(e)=>{
+const takeit =async (e)=>{
 e.preventDefault();
 const data={
     Name:name,
@@ -72,7 +72,7 @@ catch(err){
 
 //uploading images
 
-const handleimages= async (e)=>{
+const handleimages=  (e)=>{
 e.preventDefault();
 const file=e.target.files[0]; // we going to upload one images at a time
 console.log(file);
