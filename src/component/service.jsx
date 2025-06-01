@@ -2,6 +2,8 @@ import React from "react"
 import { db } from "../../firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "./product";
+import { storage } from "../../firebase.config";
+
 
 
 function Services(){
@@ -41,6 +43,7 @@ React.useEffect(()=>
 const[name,setname]=React.useState("");
 const[quantity,setquantity]=React.useState('');
 const[submited,setsumbited]=React.useState('');
+const[img,setimg]=React.useState('');
 
 const takeit =async(e)=>{
 e.preventDefault();
@@ -67,7 +70,26 @@ catch(err){
 
 }
 
+//uploading images
 
+const handleimages= async (e)=>{
+e.preventDefault();
+const file=e.target.files[0]; // we going to upload one images at a time
+console.log(file);
+
+if(!file) return;
+
+
+
+const data = new FormData(); //required to send  files via post request and also construcer function
+data.append("file",file); //file key is fixed for cloudinary
+data.append("upload_preset","Black Devil");//upload preset
+data.append("cloud_name","dsql24lj1");
+
+
+
+
+}
 
 
 
@@ -121,7 +143,7 @@ return(
 
 <div className=" flex justify-center content-center ">
  <form onSubmit={takeit} className="">
- <div className="flex flex-col justify-center mt-[350px] gap-3 w-96 h-auto border border-black h-52 p-5 rounded-2xl bg-white">
+ <div className="flex flex-col justify-center mt-[250px] gap-3 w-96 h-auto border border-black h-52 p-5 rounded-2xl bg-white">
     <label className="text-2xl text-black">product Name:
         </label>
         <input type="text" value={name} onChange={(e)=>setname(e.target.value)}
@@ -131,6 +153,11 @@ return(
         </label>
         <input type="text" value={quantity} onChange={(e)=>setquantity(e.target.value)}
       className="border border-black rounded-2xl ml-3 h-24 text-black text-[30px]"/>
+
+
+          <label className="">Images:<input type="file" className="border border-black rounded-2xl p-3" onChange={handleimages} /></label>
+
+
       <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200" onClick={()=>alert("product is added to items for sell")}> Sell</button>
     
  </div>

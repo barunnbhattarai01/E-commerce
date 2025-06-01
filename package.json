@@ -12,6 +12,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@tailwindcss/vite": "^4.1.7",
+    "cloudinary": "^2.6.1",
     "firebase": "^11.8.1",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
