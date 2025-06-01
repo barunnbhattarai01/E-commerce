@@ -3,6 +3,7 @@ import { db } from "../../firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "./product";
 import { storage } from "../../firebase.config";
+import { useState } from "react";
 
 
 
@@ -44,6 +45,7 @@ const[name,setname]=React.useState("");
 const[quantity,setquantity]=React.useState('');
 const[submited,setsumbited]=React.useState('');
 const[img,setimg]=React.useState('');
+const[loading,setloading]=useState(false);
 
 const takeit =async (e)=>{
 e.preventDefault();
@@ -72,25 +74,39 @@ catch(err){
 
 //uploading images
 
-const handleimages=  (e)=>{
+const handleimages=  async (e)=>{
 e.preventDefault();
 const file=e.target.files[0]; // we going to upload one images at a time
+
 console.log(file);
 
 if(!file) return;
 
-
+setloading(true)
 
 const data = new FormData(); //required to send  files via post request and also construcer function
 data.append("file",file); //file key is fixed for cloudinary
 data.append("upload_preset","Black Devil");//upload preset
 data.append("cloud_name","dsql24lj1");
 
+// fetching the images from cloudinary just we upload from services
+
+
+ const res= await fetch("https://api.cloudinary.com/v1_1/dsql24lj1/image/upload",{
+    method:"POST" ,
+    body:data ,
+  }
+  )
+  const imagesurl = await res.json();
+ console.log(imagesurl.url)
+
+setloading(false)
+
+
 
 
 
 }
-
 
 
 
@@ -154,7 +170,7 @@ return(
         <input type="text" value={quantity} onChange={(e)=>setquantity(e.target.value)}
       className="border border-black rounded-2xl ml-3 h-24 text-black text-[30px]"/>
 
-
+         <label>{loading? "uploading":"loaded"}</label>
           <label className="">Images:<input type="file" className="border border-black rounded-2xl p-3" onChange={handleimages} /></label>
 
 
@@ -179,7 +195,7 @@ return(
 </>
 
 
-)
+);
 
 
 }

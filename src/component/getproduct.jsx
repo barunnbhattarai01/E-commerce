@@ -5,7 +5,7 @@ import { serverTimestamp,orderBy } from "firebase/firestore";
 
 
 
-function Getdata(){
+function Getdata({data}){
 
 const[geted,setgeted]=useState([]);
 const[getimg,setgetimg]=useState('');
@@ -43,19 +43,19 @@ fetchdata(); //we have to call it to mount one time
 // fetching the images from cloudinary just we upload from services
 
 
-useEffect(
+useEffect(()=>{
 const fetchimages = async (e)=>
 {
-  await fetch("https://api.cloudinary.com/v1_1/dsql24lj1/image/upload",{
-    method:"Post",
-    body:data
+ const res= await fetch("https://api.cloudinary.com/v1_1/dsql24lj1/image/upload",{
+    method:"POST" ,
+    body:data ,
   }
   )
- 
+  const imagesurl = await res.json();
+ console.log(imagesurl.url)
 
 
-
-},[]
+}},[]
 )
 
 
