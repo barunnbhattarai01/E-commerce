@@ -2,9 +2,7 @@ import React from "react"
 import { db } from "../../firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "./product";
-import { storage } from "../../firebase.config";
-import { useState } from "react";
-
+import {useState} from "react";
 
 
 function Services(){
@@ -46,6 +44,8 @@ const[quantity,setquantity]=React.useState('');
 const[submited,setsumbited]=React.useState('');
 const[img,setimg]=React.useState('');
 const[loading,setloading]=useState(false);
+
+
 
 const takeit =async (e)=>{
 e.preventDefault();
@@ -98,8 +98,22 @@ data.append("cloud_name","dsql24lj1");
   }
   )
   const imagesurl = await res.json();
- console.log(imagesurl.url)
+//  console.log(imagesurl.url)
 
+
+
+  //  get previous items from localStorage
+  const existingData = JSON.parse(localStorage.getItem("uploadedImages") || "[]");
+  //to receive the data from local storage we should use.parse
+  //   add new image URL
+  const updatedData = [...existingData, { imageUrl: imagesurl.url, uploadedAt: new Date().toISOString() }];
+
+  // save back to localStorage
+  localStorage.setItem("uploadedImages", JSON.stringify(updatedData));
+    //to save objects or arrays in local storge, convert them to a string first using JSON.stringify()
+
+
+  setsumbited(imagesurl.url)
 setloading(false)
 
 
@@ -159,7 +173,7 @@ return(
 
 <div className=" flex justify-center content-center ">
  <form onSubmit={takeit} className="">
- <div className="flex flex-col justify-center mt-[250px] gap-3 w-96 h-auto border border-black h-52 p-5 rounded-2xl bg-white">
+ <div className="flex flex-col justify-center mt-[250px] gap-3 w-96 h-auto border border-black  p-5 rounded-2xl bg-white">
     <label className="text-2xl text-black">product Name:
         </label>
         <input type="text" value={name} onChange={(e)=>setname(e.target.value)}
