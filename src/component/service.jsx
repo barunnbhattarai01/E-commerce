@@ -108,10 +108,7 @@ data.append("cloud_name","dsql24lj1");
   //   add new image URL
   const updatedData = [...existingData, { imageUrl: imagesurl.url, uploadedAt: new Date().toISOString() }];
 
-  // save back to localStorage
-  localStorage.setItem("uploadedImages", JSON.stringify(updatedData));
-    //to save objects or arrays in local storge, convert them to a string first using JSON.stringify()
-
+  
 
   setsumbited(imagesurl.url)
 setloading(false)
