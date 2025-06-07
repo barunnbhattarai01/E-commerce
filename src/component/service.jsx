@@ -41,36 +41,11 @@ React.useEffect(()=>
 */
 const[name,setname]=React.useState("");
 const[quantity,setquantity]=React.useState('');
-const[submited,setsumbited]=React.useState('');
 const[img,setimg]=React.useState('');
 const[loading,setloading]=useState(false);
 
 
 
-const takeit =async (e)=>{
-e.preventDefault();
-const data={
-    Name:name,
-    description:quantity,
-    createdAt:serverTimestamp()
-}
-
-try{
- await addDoc(collection(db,'detail'),data);
- setsumbited(data)
-setname("");
-setquantity("");
-
-
-}
-catch(err){
- console.error("error happen",err)
-}
-
-
-
-
-}
 
 //uploading images
 
@@ -113,7 +88,7 @@ data.append("cloud_name","dsql24lj1");
     //to save objects or arrays in local storge, convert them to a string first using JSON.stringify()
   
 
-  setsumbited(imagesurl.url)
+  setimg(imagesurl.url)
 setloading(false)
 
 
@@ -122,6 +97,35 @@ setloading(false)
 
 }
 
+const takeit =async (e)=>{
+e.preventDefault();
+const data={
+    Name:name,
+    description:quantity,
+    image:img,
+    createdAt:serverTimestamp()
+}
+  if (!img) return alert("No image selected!");
+
+
+try{
+ await addDoc(collection(db,'detail'),data);
+ alert("product added to items")
+
+setname("");
+setquantity("");
+setimg("")
+
+
+}
+catch(err){
+ console.error("error happen",err)
+}
+
+
+
+
+}
 
 
 
@@ -188,7 +192,7 @@ return(
           <label className="">Images:<input type="file" className="border border-black rounded-2xl p-3" onChange={handleimages} /></label>
 
 
-      <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200" onClick={()=>alert("product is added to items for sell")}> Sell</button>
+      <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200" > Sell</button>
     
  </div>
 
