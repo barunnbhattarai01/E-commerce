@@ -18,10 +18,11 @@ function Navbar(){
   {
   if (theme==="dark"){
     document.documentElement.classList.add("dark");
-    document.body.style.backgroundColor="white"
+    document.body.style.backgroundColor="black"
   }
   else{
     document.documentElement.classList.remove("dark");
+    document.body.style.backgroundColor="white"
   }
 
   localStorage.setItem("theme",theme)

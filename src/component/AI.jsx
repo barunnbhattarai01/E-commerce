@@ -48,10 +48,10 @@ return(
 
 <>
 
-<div className="flex flex-col gap-3 items-center">
-<label className="text-2xl text-black">Enter the prompt</label>
+<div className="flex flex-col gap-3 items-center dark:text-white">
+<label className="text-2xl text-black dark:text-white">Enter the prompt</label>
 <input 
-className="border border-black focus:ring-2 focus:ring-blue-200 w-52 rounded-2xl h-20"
+className="border border-black focus:ring-2 focus:ring-blue-200 w-52 rounded-2xl h-20  bg-white text-black"
 value={prompt}
 onChange={(e)=>setprompt(e.target.value)}
 />
@@ -61,7 +61,7 @@ onChange={(e)=>setprompt(e.target.value)}
 {error && <p>{error}</p>}
 
 {response && (
- <div className="bg-white">
+ <div className="dark:text-white text-2xl">
 
  <ReactMarkdown>{response}</ReactMarkdown>
 
