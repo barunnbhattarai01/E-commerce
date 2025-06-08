@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import Product from './component/product.jsx'
 import Login from './component/login.jsx'
+import Chart from './component/chart.jsx' 
 
 import {
   createBrowserRouter,  RouterProvider}  from "react-router-dom"
@@ -59,6 +60,11 @@ element:<><Navbar/><Product/></>
 element:<><Navbar/><Ai/></>
 
    },
+   {
+  path:"/chart",
+  element:<><Navbar/><Chart/></>
+
+   }
 
 
 

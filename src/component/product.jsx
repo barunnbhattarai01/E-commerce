@@ -40,7 +40,7 @@ return(
     <>
  <div className="overflow-x-hidden relative text-black bg-white p-6 rounded-xl shadow-lg border border-gray-200  w-[600px]  mt-7 dark:bg-black dark:text-white overflow-y-hidden max-h-500" key={index}>
    <img src={pro.image} className="h-36"/>
-   <p>{pro.title}</p>
+  
  <div className="mx-auto ">
     <p className=" font-bold text-3xl">{pro.title}</p>
     <p className="text-2xl">PRICE:${pro.price}</p>

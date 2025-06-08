@@ -74,20 +74,6 @@ data.append("cloud_name","dsql24lj1");
   )
   const imagesurl = await res.json();
 //  console.log(imagesurl.url)
-
-
-
-  //  get previous items from localStorage
-  const existingData = JSON.parse(localStorage.getItem("uploadedImages") || "[]");
-  //to receive the data from local storage we should use.parse
-  //   add new image URL
-  const updatedData = [...existingData, { imageUrl: imagesurl.url, uploadedAt: new Date().toISOString() }];
-
-    // save back to localStorage
-  localStorage.setItem("uploadedImages", JSON.stringify(updatedData));
-    //to save objects or arrays in local storge, convert them to a string first using JSON.stringify()
-  
-
   setimg(imagesurl.url)
 setloading(false)
 
@@ -176,7 +162,7 @@ return(
 */}
 
 <div className=" flex justify-center content-center ">
- <form onSubmit={takeit} className="">
+ <form onSubmit={takeit} className=""> 
  <div className="flex flex-col justify-center mt-[250px] gap-3 w-96 h-auto border border-black  p-5 rounded-2xl bg-white">
     <label className="text-2xl text-black">product Name:
         </label>
