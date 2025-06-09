@@ -1,8 +1,11 @@
 import React,{useEffect} from "react";
+import { useDispatch } from "react-redux";
+import { addtochart } from "./Store/tosilces";
 
 function Product(){
     const[search,setsearch]=React.useState([]);
     const[query,setquery]=React.useState("");
+    const dispatch=useDispatch();
     
     useEffect(()=>
     {
@@ -48,6 +51,7 @@ return(
 
 
     </div>
+    <button className="mt-11 ml-36 border border-black rounded-2xl p-3 hover:bg-blue-100 "onClick={()=>dispatch(addtochart(pro))}>Add to Chart</button>
     </div>
     </>
 
@@ -59,6 +63,7 @@ return(
 
 
 }
+
 
 </div>
 

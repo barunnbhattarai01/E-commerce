@@ -4,10 +4,10 @@ import './index.css'
 import App from './App.jsx'
 import Product from './component/product.jsx'
 import Login from './component/login.jsx'
-import Chart from './component/chart.jsx' 
+import Cart from './component/chart.jsx' 
 
 import {
-  createBrowserRouter,  RouterProvider}  from "react-router-dom"
+  createBrowserRouter,  RouterProvider,createRoutesFromElements,Route}  from "react-router-dom"
 
 import Navbar from './component/navbar.jsx';
 import Intro from './component/intro.jsx'
@@ -16,67 +16,38 @@ import Signup from './component/sigup.jsx'
 import Getdata from './component/getproduct.jsx'
 import Adminlogin from './component/adminlogin.jsx'
 import Ai from './component/ai.jsx'
-   const router =createBrowserRouter(
-    [
-      {
-path:"/",
-element:<><Login/></>
+import { store } from './component/Store/store.jsx'
+import { Provider } from 'react-redux'
 
-   },
-   {
-path:"/home",
-element:<><Navbar/><Intro/></>
+const router=createBrowserRouter(
 
-   },
+   createRoutesFromElements(
+      <>
+      <Route path='/' element={<Login/>}/>
+         <Route path='/admin' element={<Adminlogin/>}/>
+         <Route path='/signup' element={<Signup/>}/>
+  <Route path='/' element={<App/>}>
+  <Route path='/home' element={<Intro/>}/>
+   <Route path='/items' element ={<Getdata/>}/>
+   <Route path='/service' element={<Services/>}/>
+   <Route path='/products' element={<Product/>}/>
+   <Route path='/ai' element={<Ai/>}/>
+   <Route path='/chart' element={<Cart/>}/>
+   </Route>
 
-   {
-   path:"/items",
-element:<><Navbar/><Getdata/></>
-
-   },
-   {
-   path:"/signup",
-element:<><Signup/></>
-
-   },
-
-   {
-   path:"/admin",
-element:<><Adminlogin/></>
-
-   },
-    {
-   path:"/service",
-element:<><Services/></>
-
-   },
-    {
-   path:"/products",
-element:<><Navbar/><Product/></>
-
-   },
-   {
-   path:"/ai",
-element:<><Navbar/><Ai/></>
-
-   },
-   {
-  path:"/chart",
-  element:<><Navbar/><Chart/></>
-
-   }
-
-
-
-
-
-
-
-    ]
+</>
    )
 
+
+)
+
+   
+
+   
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}/>  
+   <Provider store ={store}>     {/*we warpped the whole router(element) */}
+    <RouterProvider router={router}/> 
+    </Provider> 
   </StrictMode>,
 )
