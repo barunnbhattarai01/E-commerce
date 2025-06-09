@@ -54,12 +54,12 @@ return(
  <div className="hidden md:flex bg-white shadow-lg h-24 items-center ">
   <div className="flex items-center"><img src="./logo-3030.webp" className="h-10 w-20 "/></div>
   <div className="text-2xl mx-auto flex space-x-16 ">
-  <Link to="/home" className="focus:bg-blue-300 h-10 w-20 ">Home</Link>
-    <Link to="/items" className="focus:bg-blue-300 h-10 w-24">Items</Link>
-<Link to="/products" className="focus:bg-blue-300 h-10 w-24">Products</Link>
- <Link to="/chart" className="focus:bg-blue-300 h-10 w-16">Chart</Link>
+  <Link to="/home" className=" ">Home</Link>
+    <Link to="/items" className="">Items</Link>
+<Link to="/products" className="">Products</Link>
+ <Link to="/chart" className="">Chart</Link>
 
-<button className="focus:bg-blue-300 h-10 w-24 p-1" onClick={toggle}>Button</button>
+<button className="" onClick={toggle}>{theme=="light"?"🌑":"☀️ "}</button>
 
 
   </div>
