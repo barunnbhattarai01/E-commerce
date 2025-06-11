@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { Menu,X } from "lucide-react";  //menu and X are the commpoenent of react lucide
+import { useNavigate } from "react-router-dom";
 
 function Navbar(){
 
-
+  const navigate =useNavigate();
 
   const[open,setopen]=React.useState(false)
   //experminating the dark mode in chart button for now for learning
@@ -58,12 +59,12 @@ return(
     <Link to="/items" className="">Items</Link>
 <Link to="/products" className="">Products</Link>
  <Link to="/chart" className="">Chart</Link>
-
 <button className="" onClick={toggle}>{theme=="light"?"🌑":"☀️ "}</button>
 
-
   </div>
-
+  <div className="text-2xl p-3">
+   <button className="" onClick={()=>navigate("/")}>Log out</button>
+</div>
 
  </div>
  
@@ -89,6 +90,7 @@ return(
 <Link to="/products" className="" onClick={togglemenu}>Products</Link>
  <Link to="/chart" className="" onClick={togglemenu}>Chart</Link>
 <button className="" onClick={toggle}>{theme==="light"? "☀️":"🌙"}</button>
+ <button className="" onClick={()=>navigate("/")}>Log out</button>
 </div>
 )}
  </div>

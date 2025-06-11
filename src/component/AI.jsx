@@ -61,7 +61,7 @@ onChange={(e)=>setprompt(e.target.value)}
 {error && <p>{error}</p>}
 
 {response && (
- <div className="dark:text-white text-2xl">
+ <div className="dark:text-white text-2xl shadow-lg" >
 
  <ReactMarkdown>{response}</ReactMarkdown>
 
