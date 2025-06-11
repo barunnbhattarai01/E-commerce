@@ -30,7 +30,7 @@ return(
     Search for items
     <input
       type="text"
-      className="text-white rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400 border border-white "
+      className="text-white rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400 border border-white w-56 md:w-auto "
       value={query}
       onChange={(e) => setquery(e.target.value)}
     />

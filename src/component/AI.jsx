@@ -48,14 +48,14 @@ return(
 
 <>
 
-<div className="flex flex-col gap-3 items-center dark:text-white">
+<div className="flex flex-col gap-3 items-center  mx-auto mt-9 dark:text-white w-96 shadow-lg h-56">
 <label className="text-2xl text-black dark:text-white">Enter the prompt</label>
 <input 
 className="border border-black focus:ring-2 focus:ring-blue-200 w-52 rounded-2xl h-20  bg-white text-black"
 value={prompt}
 onChange={(e)=>setprompt(e.target.value)}
 />
-<button onClick={generatecontent} className=" cursor-pointer ">Send</button>
+<button onClick={generatecontent} className=" cursor-pointer shadow-lg rounded-2xl p-1.5 hover:bg-blue-100">Send</button>
 </div>
 
 {error && <p>{error}</p>}

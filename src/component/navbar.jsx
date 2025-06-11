@@ -68,7 +68,7 @@ return(
  </div>
  
 
- {/*toggle menu*/}
+ {/*toggle X and menu*/}
    <div className="md:hidden flex justify-end">
      <button className="" onClick={togglemenu}>{open?<X size={28}/>:<Menu size ={28}/>}</button>
    {/*  menu and X are the react compomemt so we called like this*/}
@@ -79,15 +79,15 @@ return(
 
 
  {/*mobile view*/}
- <div className="md:hidden flex flex-col">
+ <div className="md:hidden flex flex-col bg-blue-100">
   
   {/* if open is true which means it is open and when it is open it show below detail*/}
   {open &&(
   <div className="flex flex-col items-end mr-5 dark:text-white ">
-  <Link to="/home" className="">Home</Link>
-    <Link to="/items" className="">Items</Link>
-<Link to="/products" className="">Products</Link>
- <Link to="/chart" className="">Chart</Link>
+  <Link to="/home" className=""  onClick={togglemenu}>Home</Link>
+    <Link to="/items" className="" onClick={togglemenu}>Items</Link>
+<Link to="/products" className="" onClick={togglemenu}>Products</Link>
+ <Link to="/chart" className="" onClick={togglemenu}>Chart</Link>
 <button className="" onClick={toggle}>{theme==="light"? "☀️":"🌙"}</button>
 </div>
 )}

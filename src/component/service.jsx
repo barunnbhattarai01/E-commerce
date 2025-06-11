@@ -3,6 +3,7 @@ import { db } from "../../firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "./product";
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Services(){
@@ -43,6 +44,9 @@ const[name,setname]=React.useState("");
 const[quantity,setquantity]=React.useState('');
 const[img,setimg]=React.useState('');
 const[loading,setloading]=useState(false);
+const[theme,settheme]=useState(()=>{
+  return localStorage.getItem("theme")
+})
 
 
 
@@ -113,6 +117,30 @@ catch(err){
 
 }
 
+//dark mode
+ React.useEffect(()=>
+  {
+  if (theme==="dark"){
+    document.documentElement.classList.add("dark");
+    document.body.style.backgroundColor="black"
+  }
+  else{
+    document.documentElement.classList.remove("dark");
+    document.body.style.backgroundColor="white"
+  }
+
+  localStorage.setItem("theme",theme)
+
+
+  },[theme] ) 
+
+
+  //toggle button
+  const togglebutton=()=>{
+    settheme(theme==="light"?"dark":"light")
+  }
+ //for logout
+ const navigate=useNavigate();
 
 
 return(
@@ -160,43 +188,64 @@ return(
 
 </div>
 */}
+ 
+  <div className="flex items-center justify-between px-4 mt-4">
+    <h1 className="font-bold text-3xl dark:text-white">Welcome Back! Admin</h1>
+    <button
+      className="border border-black dark:border-white p-2 rounded-2xl"
+      onClick={togglebutton}
+    >
+      {theme === "light" ? "🌑" : "☀️"}
+    </button>
+  </div>
 
-<div className=" flex justify-center content-center ">
- <form onSubmit={takeit} className=""> 
- <div className="flex flex-col justify-center mt-[250px] gap-3 w-96 h-auto border border-black  p-5 rounded-2xl bg-white">
-    <label className="text-2xl text-black">product Name:
+  <div className="flex justify-center mt-10">
+    <form onSubmit={takeit}>
+      <div className="w-80 md:w-96 p-5 mt-28 md:mt-[150px] border border-black rounded-2xl bg-white flex flex-col gap-4">
+        <label className="text-2xl text-black">Product Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setname(e.target.value)}
+          className="border border-black rounded-2xl h-10 px-2"
+        />
+
+        <label className="text-2xl text-black">Description:</label>
+        <input
+          type="text"
+          value={quantity}
+          onChange={(e) => setquantity(e.target.value)}
+          className="border border-black rounded-2xl h-24 px-2 text-black text-xl"
+        />
+
+        <label className="text-sm">{loading ? "Uploading..." : "Loaded"}</label>
+
+        <label className="text-black">
+          Images:
+          <input
+            type="file"
+            className="border border-black rounded-2xl p-3 mt-1 w-full"
+            onChange={handleimages}
+          />
         </label>
-        <input type="text" value={name} onChange={(e)=>setname(e.target.value)}
-     className="border border-black rounded-2xl ml-1 h-10"
-    />
-      <label className="text-2xl text-black mt-4">Description:
-        </label>
-        <input type="text" value={quantity} onChange={(e)=>setquantity(e.target.value)}
-      className="border border-black rounded-2xl ml-3 h-24 text-black text-[30px]"/>
 
-         <label>{loading? "uploading":"loaded"}</label>
-          <label className="">Images:<input type="file" className="border border-black rounded-2xl p-3" onChange={handleimages} /></label>
+        <button
+          type="submit"
+          className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200"
+        >
+          Sell
+        </button>
+      </div>
+    </form>
+  </div>
 
-
-      <button type="submit" className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200" > Sell</button>
-    
- </div>
-
-
-
- </form>
-
-
-
-
-
-
-
-</div>
-
-
-
+  <div className="flex justify-center mt-5">
+    <button onClick={() => navigate("/")} className=" text-blue-500 border border-black dark:border-white rounded-2xl p-3 hover:bg-blue-200">
+      Log out
+    </button>
+  </div>
 </>
+
 
 
 );
