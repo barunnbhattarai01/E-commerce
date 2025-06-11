@@ -83,7 +83,7 @@ return(
   
   {/* if open is true which means it is open and when it is open it show below detail*/}
   {open &&(
-  <div className="flex flex-col items-end mr-5 dark:text-white ">
+  <div className="flex flex-col items-end mr-5 dark:text-white shadow-lg">
   <Link to="/home" className=""  onClick={togglemenu}>Home</Link>
     <Link to="/items" className="" onClick={togglemenu}>Items</Link>
 <Link to="/products" className="" onClick={togglemenu}>Products</Link>
