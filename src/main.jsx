@@ -15,7 +15,7 @@ import Services from './component/service.jsx'
 import Signup from './component/sigup.jsx'
 import Getdata from './component/getproduct.jsx'
 import Adminlogin from './component/adminlogin.jsx'
-import Ai from './component/ai.jsx'
+import Ai from './component/AI.jsx'
 import { store } from './component/Store/store.jsx'
 import { Provider } from 'react-redux'
 
