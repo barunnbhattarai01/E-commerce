@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { Menu,X } from "lucide-react";  //menu and X are the commpoenent of react lucide
 import { useNavigate } from "react-router-dom";
+import { LogOut } from "lucide-react";
+
 
 function Navbar(){
 
@@ -63,15 +65,15 @@ return(
 
   </div>
   <div className="text-2xl p-3">
-   <button className="" onClick={()=>navigate("/")}>Log out</button>
+   <button className="" onClick={()=>navigate("/")}>{<LogOut size={33}/>}</button>
 </div>
 
  </div>
  
 
  {/*toggle X and menu*/}
-   <div className="md:hidden flex justify-end">
-     <button className="" onClick={togglemenu}>{open?<X size={28}/>:<Menu size ={28}/>}</button>
+   <div className="md:hidden flex justify-end dark:bg-white">
+     <button className="dark:text-black" onClick={togglemenu}>{open?<X size={28}/>:<Menu size ={28}/>}</button>
    {/*  menu and X are the react compomemt so we called like this*/}
 
 
@@ -84,13 +86,13 @@ return(
   
   {/* if open is true which means it is open and when it is open it show below detail*/}
   {open &&(
-  <div className="flex flex-col items-end mr-5 dark:text-white shadow-lg">
+  <div className="flex flex-col items-end mr-5 dark:text-black shadow-lg">
   <Link to="/home" className=""  onClick={togglemenu}>Home</Link>
     <Link to="/items" className="" onClick={togglemenu}>Items</Link>
 <Link to="/products" className="" onClick={togglemenu}>Products</Link>
  <Link to="/chart" className="" onClick={togglemenu}>Chart</Link>
 <button className="" onClick={toggle}>{theme==="light"? "☀️":"🌙"}</button>
- <button className="" onClick={()=>navigate("/")}>Log out</button>
+   <button className="" onClick={()=>navigate("/")}>{<LogOut size={22}/>}</button>
 </div>
 )}
  </div>
