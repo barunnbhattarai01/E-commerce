@@ -1,45 +1,33 @@
-import shoes from '/shoes.jpg'
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import shoes from "/shoes.jpg";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
+function Intro() {
+  return (
+    <>
+      {/* <Link to ="/ai" className='mt-16 mr-96 border border-b-black rounded-2xl p-4 cursor-pointer hover:bg-amber-300 font-bold'  >About us</Link> */}
 
-function Intro(){
-
-
-
-return(
-
-<>
-{/*For the laptop view  */}
-<div className='mt-2 bg-gray-100 py-6 bg-cover bg-center h-[800px]  ' style={{backgroundImage:"url('/shoes.jpg')"}}>
-
-    <div className='hidden md:flex mx-auto mt-7 ml-10 '>
-    <p className='font-bold text-4xl '>Get up to 30% off on New Arrivals</p>
-    <Link to ="/ai" className='mt-16 mr-96 border border-b-black rounded-2xl p-4 cursor-pointer hover:bg-amber-300 font-bold'  >About us</Link>
-
-    </div>
-  
-
-  {/* For mobile view*/}
-  <div className='md:hidden flex flex-wrap mx-auto mt-7 ml-10 '>
-    <p className='font-bold text-4xl  dark:text-blue-200'>Get up to 30% off on New Arrivals</p>
-    <Link to ="/ai" className='mt-16 mr-96 border border-b-black rounded-2xl p-4 cursor-pointer hover:bg-amber-300 font-bold'  >About us</Link>
-
-    </div>
-
-
-
-
-
-</div>
-
-</>
-
-)
-
-
+      <div className=" text-white font-sans w-full h-screen bg-gradient-to-r from-black to-red-900">
+        <div className="relative overflow-hidden w-full h-full  p-4 md:p-6">
+          <div
+            className="absolute inset-0 bg-no-repeat opacity-20"
+            style={{
+              backgroundImage: "url('/headsets.jpg')",
+              backgroundPosition: "-20px center",
+              backgroundSize: "500px",
+              border: "none",
+            }}
+          >
+            <div className="absolute inset-0 bg-red-800 opacity-20"></div>
+          </div>
+          <div className=" h-48 w-72 ml-auto mt-64 mr-56 text-2xl">
+                Welcome to Sasto Pasal  your one-stop shop for quality products at unbeatable prices. We’re here to make shopping easy, fun, and secure.
+              </div>
+        </div>
+        
+      </div>
+    </>
+  );
 }
 
-
-
-export default Intro
+export default Intro;

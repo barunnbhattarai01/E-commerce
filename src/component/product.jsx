@@ -1,7 +1,6 @@
 import React,{useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { addtochart } from "./Store/tosilces";
-import { LogOut } from "lucide-react";
 
 function Product(){
     const[search,setsearch]=React.useState([]);
