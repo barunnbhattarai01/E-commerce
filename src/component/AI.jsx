@@ -48,25 +48,38 @@ return(
 
 <>
 
-<div className="flex flex-col gap-3 items-center  mx-auto mt-9 dark:text-white w-96 shadow-lg h-56">
-<label className="text-2xl text-black dark:text-white">Enter the prompt</label>
-<input 
-className="border border-black focus:ring-2 focus:ring-blue-200 w-52 rounded-2xl h-20  bg-white text-black"
-value={prompt}
-onChange={(e)=>setprompt(e.target.value)}
-/>
-<button onClick={generatecontent} className=" cursor-pointer shadow-lg rounded-2xl p-1.5 hover:bg-blue-100">Send</button>
+<div className="flex flex-col gap-4 items-center mx-auto mt-12 dark:text-white w-80 md:w-96 shadow-lg rounded-2xl p-6 bg-white dark:bg-gray-900">
+  <label className="text-2xl font-semibold text-black dark:text-white">
+    Enter the prompt
+  </label>
+
+  <input 
+    className="border border-gray-300 focus:ring-2 focus:ring-blue-400 w-full rounded-2xl h-12 px-4 bg-white text-black dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+    value={prompt}
+    onChange={(e) => setprompt(e.target.value)}
+    placeholder="Type your prompt..."
+  />
+
+  <button 
+    onClick={generatecontent} 
+    className="w-full shadow-md rounded-2xl py-2 text-white bg-blue-500 hover:bg-blue-600 transition duration-200"
+  >
+    Send
+  </button>
 </div>
 
-{error && <p>{error}</p>}
+{error && (
+  <p className="text-red-600 bg-red-100 border border-red-300 rounded-lg p-3 w-full max-w-md mx-auto mt-4 shadow">
+    {error}
+  </p>
+)}
 
 {response && (
- <div className="dark:text-white text-2xl shadow-lg" >
+  <div className="dark:text-white text-black text-lg md:text-2xl shadow-lg rounded-lg p-4 bg-white dark:bg-gray-900 w-full max-w-md mx-auto mt-4">
+    <ReactMarkdown>{response}</ReactMarkdown>
+  </div>
+)}
 
- <ReactMarkdown>{response}</ReactMarkdown>
-
-
- </div>
 
 
 
