@@ -72,17 +72,21 @@ return(
  
 
  {/*toggle X and menu*/}
-   <div className="md:hidden flex justify-end dark:bg-white">
+   <div className="md:hidden flex justify-end dark:bg-white h-12 bg-blue-300 items-center">
+    <div className="mr-auto font-bold">Sasto Pasal</div>
+    <div className="mr-3"><button className="" onClick={toggle}>{theme==="light"? "☀️":"🌙"}</button>
+</div>
+    <div className="">
      <button className="dark:text-black" onClick={togglemenu}>{open?<X size={28}/>:<Menu size ={28}/>}</button>
    {/*  menu and X are the react compomemt so we called like this*/}
-
+  </div>
 
    </div>
 
 
 
  {/*mobile view*/}
- <div className="md:hidden flex flex-col bg-blue-100">
+ <div className="md:hidden flex flex-col bg-blue-100 ">
   
   {/* if open is true which means it is open and when it is open it show below detail*/}
   {open &&(

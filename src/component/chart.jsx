@@ -27,7 +27,7 @@ function Cart() {
               />
               <div>
                 <h3 className="text-xl font-semibold">
-                  {item?.text?.name || "Unknown Product"}
+                  {item?.text?.title || "Unknown Product"}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
                   {item?.text?.description || "No description"}
