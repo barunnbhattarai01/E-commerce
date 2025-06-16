@@ -26,49 +26,52 @@ function Product(){
 
 return(
 <>
-  <label className="text-white text-2xl flex items-center gap-4 bg-gray-800 px-4 py-2 rounded-lg shadow">
+
+  <label className="text-white text-2xl flex flex-col sm:flex-row items-center gap-4 bg-gray-800 px-4 py-2 rounded-lg shadow-lg">
     Search for items
     <input
       type="text"
-      className="text-white rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400 border border-white w-56 md:w-auto "
+      className="text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 border border-white w-full sm:w-64"
       value={query}
       onChange={(e) => setquery(e.target.value)}
     />
   </label>
 
-<div className="flex flex-wrap gap-20 justify-center p-20">
-{
-  filteredproduct.map(
-  (pro,index)=>(
-    <>
- <div className="overflow-x-hidden relative text-black bg-white p-6 rounded-xl shadow-lg border border-gray-200  w-[600px]  mt-7 dark:bg-black dark:text-white overflow-y-hidden max-h-500" key={index}>
-   <img src={pro.image} className="h-36"/>
-  
- <div className="mx-auto ">
-    <p className=" font-bold text-3xl">{pro.title}</p>
-    <p className="text-2xl">PRICE:${pro.price}</p>
-    <p className="text-2xl">{pro.description}</p>
+  <div className="flex flex-wrap gap-10 justify-center p-10 dark:text-white">
+    {filteredproduct.length === 0 ? (
+      <p className="text-xl font-semibold text-gray-500 dark:text-gray-400 mt-10">
+        No product found
+      </p>
+    ) : (
+      filteredproduct.map((pro, index) => (
+        <div
+          key={index}
+          className="relative text-black bg-white dark:bg-gray-900 dark:text-white p-6 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 w-80 md:w-96 hover:shadow-2xl transition"
+        >
+          <img
+            src={pro.image}
+            alt={`product-${index}`}
+            className="h-48 w-full object-cover rounded-lg mb-4"
+          />
 
+          <div>
+            <p className="font-bold text-2xl truncate">{pro.title}</p>
+            <p className="text-lg font-semibold mt-1">Price: ${pro.price}</p>
+            <p className="text-sm mt-2 line-clamp-3">{pro.description}</p>
+          </div>
 
-    </div>
-    <div className="flex justify-center">
-    <button className=" border border-black rounded-2xl p-3 hover:bg-blue-100 dark:border-white"onClick={()=>dispatch(addtochart(pro))}>Add to Chart</button>
-  </div>    
-    </div>
-    </>
-
-  )
-  
-
-  )
-
-
-
-}
-
-
-</div>
-
+          <div className="flex justify-center mt-4">
+            <button
+              className="border border-black dark:border-white rounded-xl px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-800 transition"
+              onClick={() => dispatch(addtochart(pro))}
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      ))
+    )}
+  </div>
 </>
 
 )

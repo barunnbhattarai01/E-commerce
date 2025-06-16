@@ -189,61 +189,68 @@ return(
 </div>
 */}
  
-  <div className="flex items-center justify-between px-4 mt-4">
-    <h1 className="font-bold text-3xl dark:text-white">Welcome Back! Admin</h1>
-    <button
-      className="border border-black dark:border-white p-2 rounded-2xl"
-      onClick={togglebutton}
-    >
-      {theme === "light" ? "🌑" : "☀️"}
-    </button>
-  </div>
+  
+<div className="flex items-center justify-between px-6 mt-6">
+  <h1 className="font-bold text-3xl dark:text-white">Welcome Back, Admin</h1>
+  <button
+    className="border border-black dark:border-white p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+    onClick={togglebutton}
+  >
+    {theme === "light" ? "🌑" : "☀️"}
+  </button>
+</div>
 
-  <div className="flex justify-center mt-10">
-    <form onSubmit={takeit}>
-      <div className="w-80 md:w-96 p-5 mt-28 md:mt-[150px] border border-black rounded-2xl bg-white flex flex-col gap-4">
-        <label className="text-2xl text-black">Product Name:</label>
+<div className="flex justify-center mt-12">
+  <form onSubmit={takeit}>
+    <div className="w-80 md:w-96 p-6 mt-20 md:mt-[120px] border border-black dark:border-white rounded-3xl bg-white dark:bg-gray-900 shadow-lg flex flex-col gap-5">
+      
+      <label className="text-lg font-semibold text-black dark:text-white">Product Name</label>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setname(e.target.value)}
+        className="border border-gray-300 dark:border-gray-600 rounded-xl h-10 px-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+
+      <label className="text-lg font-semibold text-black dark:text-white">Description</label>
+      <textarea
+        value={quantity}
+        onChange={(e) => setquantity(e.target.value)}
+        className="border border-gray-300 dark:border-gray-600 rounded-xl h-24 px-3 py-2 text-black dark:text-white text-base resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"
+      ></textarea>
+
+      <label className="text-sm text-gray-500 dark:text-gray-400">
+        {loading ? "Uploading..." : "Loaded"}
+      </label>
+
+      <label className="text-lg font-semibold text-black dark:text-white">
+        Images
         <input
-          type="text"
-          value={name}
-          onChange={(e) => setname(e.target.value)}
-          className="border border-black rounded-2xl h-10 px-2"
+          type="file"
+          className="border border-gray-300 dark:border-gray-600 rounded-xl p-2 mt-2 w-full focus:outline-none"
+          onChange={handleimages}
         />
+      </label>
 
-        <label className="text-2xl text-black">Description:</label>
-        <input
-          type="text"
-          value={quantity}
-          onChange={(e) => setquantity(e.target.value)}
-          className="border border-black rounded-2xl h-24 px-2 text-black text-xl"
-        />
+      <button
+        type="submit"
+        className="border border-black dark:border-white dark:text-white rounded-xl h-10 w-24 mx-auto mt-4 hover:bg-blue-200 dark:hover:bg-blue-800 transition"
+      >
+        Sell
+      </button>
+    </div>
+  </form>
+</div>
 
-        <label className="text-sm">{loading ? "Uploading..." : "Loaded"}</label>
+<div className="flex justify-center mt-6">
+  <button
+    onClick={() => navigate("/")}
+    className="text-blue-500 border border-black dark:border-white rounded-xl p-3 hover:bg-blue-200 dark:hover:bg-blue-800 transition"
+  >
+    Log out
+  </button>
+</div>
 
-        <label className="text-black">
-          Images:
-          <input
-            type="file"
-            className="border border-black rounded-2xl p-3 mt-1 w-full"
-            onChange={handleimages}
-          />
-        </label>
-
-        <button
-          type="submit"
-          className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200"
-        >
-          Sell
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <div className="flex justify-center mt-5">
-    <button onClick={() => navigate("/")} className=" text-blue-500 border border-black dark:border-white rounded-2xl p-3 hover:bg-blue-200">
-      Log out
-    </button>
-  </div>
 </>
 
 

@@ -24,33 +24,34 @@ function Getdata() {
 
   return (
     <>
-     <h1 className="font-bold text-3xl mt-3">The product that is in sell by user </h1>
-    <div className="flex flex-wrap gap-20 ml-9">
-      {geted.map((items, index) => (
-        <div
-          className="overflow-x-hidden relative text-black bg-white p-6 rounded-xl shadow-lg border border-gray-200  w-[600px]  mt-7 dark:bg-black dark:text-white overflow-y-hidden max-h-500"
-          key={items.id || index}
-        >
-          <div className="mx-auto ">
-            <img
-              src={items.image}
-              alt={`img-${index}`}
-              className="w-64 h-64 object-cover rounded-lg"
-            />
-            <p className=" font-bold text-3xl">{items.Name}</p>
-            <p className="text-2xl">{items.description}</p>
+   <h1 className="font-bold text-3xl mt-5 text-center dark:text-white">
+  The products currently on sale
+</h1>
 
-            <button
-              type="button"
-              className="border border-black rounded-2xl h-10 w-20 mx-auto mt-3 hover:bg-blue-200"
-              
-            >
-              BUY
-            </button>
-          </div>
-        </div>
-      ))}
+<div className="flex flex-wrap justify-center gap-10 mt-8">
+  {geted.map((items, index) => (
+    <div
+      key={items.id || index}
+      className="relative text-black bg-white dark:bg-gray-900 dark:text-white p-5 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 w-80 md:w-96 hover:shadow-2xl transition"
+    >
+      <img
+        src={items.image}
+        alt={`img-${index}`}
+        className="w-full h-60 object-cover rounded-xl mb-4"
+      />
+      <p className="font-bold text-2xl mb-2 truncate">{items.Name}</p> {/*truncate help to force to stay text in one line */}
+      <p className="text-lg mb-4 line-clamp-3">{items.description}</p>  {/* line-clamp-3 Limits text to 3 lines */}
+
+      <button
+        type="button"
+        className="border border-black dark:border-white rounded-xl h-10 w-full hover:bg-blue-200 dark:hover:bg-blue-800 transition"
+      >
+        BUY
+      </button>
     </div>
+  ))}
+</div>
+
     </>
   );
 }
