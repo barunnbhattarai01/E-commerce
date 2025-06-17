@@ -95,7 +95,6 @@ return(
     <Link to="/items" className="" onClick={togglemenu}>Items</Link>
 <Link to="/products" className="" onClick={togglemenu}>Products</Link>
  <Link to="/chart" className="" onClick={togglemenu}>Chart</Link>
-<button className="" onClick={toggle}>{theme==="light"? "☀️":"🌙"}</button>
    <button className="" onClick={()=>navigate("/")}>{<LogOut size={22}/>}</button>
 </div>
 )}

@@ -4,8 +4,8 @@ import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "./product";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
-
-
+import { Link } from "react-router-dom";
+import { X,Menu } from "lucide-react";
 function Services(){
 
 /*const[product,setProduct]=React.useState([]);
@@ -47,6 +47,7 @@ const[loading,setloading]=useState(false);
 const[theme,settheme]=useState(()=>{
   return localStorage.getItem("theme")
 })
+const[open,setopen]=useState(false)
 
 
 
@@ -142,6 +143,11 @@ catch(err){
  //for logout
  const navigate=useNavigate();
 
+ //toggle X and MEnu
+ const toggleXandMenu=()=>{
+  setopen(prev=>!prev)
+ }
+
 
 return(
 
@@ -189,27 +195,53 @@ return(
 </div>
 */}
  
-  
-<div className="flex items-center justify-between px-6 mt-6">
-  <h1 className="font-bold text-3xl dark:text-white">Welcome Back, Admin</h1>
-  <button
-    className="border border-black dark:border-white p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-    onClick={togglebutton}
-  >
-    {theme === "light" ? "🌑" : "☀️"}
-  </button>
-</div>
+  <div className="h-screen w-auto bg-gradient-to-r from-blue-100 to-red-200 dark:bg-gradient-to-r dark:from-black dark:to-black">
+    <div>
+      <div className="flex items-center justify-between px-6 p-4">
+        <h1 className="font-bold md:text-3xl text-2xl dark:text-white">
+          Welcome Back, Admin
+        </h1>
 
-<div className="flex justify-center mt-12">
+        <button onClick={toggleXandMenu} className="flex justify-end dark:text-white">
+          {open ? <X size={33} /> : <Menu size={33} />}
+        </button>
+      </div>
+
+   {open && (
+  <div className="flex flex-col items-end dark:text-white ">
+    <Link
+      to="/items"
+      className="text-[20px] hover:bg-blue-200 p-2 rounded cursor-pointer"
+    >
+      User Section
+    </Link>
+    <button
+    onClick={() => navigate("/")}
+    className="text-[20px] hover:bg-blue-200  px-6 cursor-pointer"
+  >
+    Log out
+  </button>
+    <button onClick={togglebutton} className="text-[20px] px-6 cursor-pointer">
+      {theme === 'light' ? '🌑' : '☀️'}
+    </button>
+  </div>
+)}
+
+    </div>
+  
+
+
+
+<div className="flex justify-center ">
   <form onSubmit={takeit}>
-    <div className="w-80 md:w-96 p-6 mt-20 md:mt-[120px] border border-black dark:border-white rounded-3xl bg-white dark:bg-gray-900 shadow-lg flex flex-col gap-5">
+    <div className="w-80 md:w-96 p-6 md:mt-[60px]  mt-24 border border-black dark:border-white rounded-3xl bg-white dark:bg-gray-900 shadow-lg flex flex-col gap-5">
       
       <label className="text-lg font-semibold text-black dark:text-white">Product Name</label>
       <input
         type="text"
         value={name}
         onChange={(e) => setname(e.target.value)}
-        className="border border-gray-300 dark:border-gray-600 rounded-xl h-10 px-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="border border-gray-300 dark:border-gray-600 rounded-xl h-10 px-3 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:text-white"
       />
 
       <label className="text-lg font-semibold text-black dark:text-white">Description</label>
@@ -242,15 +274,8 @@ return(
   </form>
 </div>
 
-<div className="flex justify-center mt-6">
-  <button
-    onClick={() => navigate("/")}
-    className="text-blue-500 border border-black dark:border-white rounded-xl p-3 hover:bg-blue-200 dark:hover:bg-blue-800 transition"
-  >
-    Log out
-  </button>
-</div>
 
+</div>
 </>
 
 

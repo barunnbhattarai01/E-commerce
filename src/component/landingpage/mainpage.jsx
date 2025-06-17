@@ -21,7 +21,7 @@ function MainPage() {
             <p>Home</p>
             <p>Services</p>
             <p>Contact</p>
-            <Link to="/login">Login</Link>
+            <Link to ='/login'>Login</Link>
           </div>
         </div>
 
