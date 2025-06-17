@@ -116,9 +116,9 @@ function MainPage() {
         </div>
         {/* Map */}
         
-        <div className=" flex items-center mt-40 gap-2 flex-col">
+        <div className=" flex items-center md:mt-40 mt-30  gap-2 flex-col">
             <div className="text-white text-2xl font-bold h-12 w-20 p-2">Map</div>
-        <div className="">
+        <div className="h-auto md:w-96">
            <iframe
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51869.67625827751!2d139.67712000946372!3d35.6559497128004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5f8e737217%3A0xc07b8ba9c0f2b12b!2z77ym772P772V772O772EIO-8re-8te-8qu-8qSDpnZLlsbE!5e0!3m2!1sne!2snp!4v1750078964320!5m2!1sne!2snp"
   width="600"
