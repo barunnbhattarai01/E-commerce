@@ -25,7 +25,7 @@ function MainPage() {
           <div className="text-2xl font-bold">Sasto Pasal</div>
           <div className="flex text-2xl font-bold gap-10 flex-wrap">
             <p>Home</p>
-            <p>Services</p>
+            <Link to='/img'>Images</Link>
             <p>Contact</p>
             <Link to='/login'>Login</Link>
           </div>
@@ -46,7 +46,7 @@ function MainPage() {
             className="flex flex-col items-end mr-5 gap-2 text-[20px]"
           >
             <p onClick={togglemenu}>Home</p>
-            <p onClick={togglemenu}>Services</p>
+            <Link to='img' onClick={togglemenu}>Images</Link>
             <p onClick={togglemenu}>Contact</p>
             <Link to="/login" onClick={togglemenu}>Login</Link>
           </motion.div>
