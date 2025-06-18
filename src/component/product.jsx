@@ -1,6 +1,7 @@
 import React,{useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { addtochart } from "./Store/tosilces";
+import { motion } from "framer-motion";
 
 function Product(){
     const[search,setsearch]=React.useState([]);
@@ -12,8 +13,7 @@ function Product(){
         fetch('https://fakestoreapi.com/products')
     
         .then(res=>res.json())
-        .then(data=>{setsearch(data),
-        console.log(data)
+        .then(data=>{setsearch(data)
         })
         .catch(err=>console.error("error",err))
     },[])
@@ -44,7 +44,10 @@ return(
       </p>
     ) : (
       filteredproduct.map((pro, index) => (
-        <div
+        <motion.div
+        initial={{scale:0.9,opacity:0}}
+        whileInView={{scale:1,opacity:1}}
+        transition={{delay:0.4}}
           key={index}
           className="relative text-black bg-white dark:bg-gray-900 dark:text-white p-6 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 w-80 md:w-96 hover:shadow-2xl transition"
         >
@@ -68,7 +71,7 @@ return(
               Add to Cart
             </button>
           </div>
-        </div>
+        </motion.div>
       ))
     )}
   </div>

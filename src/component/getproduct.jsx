@@ -1,7 +1,7 @@
 import { getDocs, collection, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase.config";
 import React, { useState, useEffect } from "react";
-
+import { motion } from "framer-motion";
 
 function Getdata() {
 
@@ -30,7 +30,10 @@ function Getdata() {
 
 <div className="flex flex-wrap justify-center gap-10 mt-8">
   {geted.map((items, index) => (
-    <div
+    <motion.div
+    initial={{scale:0.9,opacity:0}}
+    whileInView={{scale:1,opacity:1}}
+    transition={{delay:0.2}}
       key={items.id || index}
       className="relative text-black bg-white dark:bg-gray-900 dark:text-white p-5 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 w-80 md:w-96 hover:shadow-2xl transition"
     >
@@ -48,7 +51,7 @@ function Getdata() {
       >
         BUY
       </button>
-    </div>
+    </motion.div>
   ))}
 </div>
 
