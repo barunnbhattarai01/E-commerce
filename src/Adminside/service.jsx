@@ -231,51 +231,64 @@ return(
   
 
 
+<div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-white  to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-4">
+  <form onSubmit={takeit} className="w-full max-w-md bg-white dark:bg-gray-950 rounded-2xl shadow-2xl p-8 space-y-6 border border-gray-200 dark:border-gray-700 transition-all">
+    <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white">Sell your Product</h2>
 
-<div className="flex justify-center ">
-  <form onSubmit={takeit}>
-    <div className="w-80 md:w-96 p-6 md:mt-[60px]  mt-24 border border-black dark:border-white rounded-3xl bg-white dark:bg-gray-900 shadow-lg flex flex-col gap-5">
-      
-      <label className="text-lg font-semibold text-black dark:text-white">Product Name</label>
+    {/* Product Name */}
+    <div>
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Product Name</label>
       <input
         type="text"
         value={name}
         onChange={(e) => setname(e.target.value)}
-        className="border border-gray-300 dark:border-gray-600 rounded-xl h-10 px-3 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:text-white"
+        placeholder="e.g., MacBook Pro M2"
+        className="mt-1 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent px-4 py-2 text-black dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
       />
+    </div>
 
-      <label className="text-lg font-semibold text-black dark:text-white">Description</label>
+    {/* Description */}
+    <div>
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
       <textarea
         value={quantity}
         onChange={(e) => setquantity(e.target.value)}
-        className="border border-gray-300 dark:border-gray-600 rounded-xl h-24 px-3 py-2 text-black dark:text-white text-base resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"
-      ></textarea>
+        placeholder="Write about the product..."
+        className="mt-1 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent px-4 py-2 text-black dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
+        rows={4}
+      />
+    </div>
 
-      <label className="text-sm text-gray-500 dark:text-gray-400">
-        {loading ? "Uploading..." : "Loaded"}
-      </label>
+    {/* Upload Status */}
+    <div>
+      <span className="text-sm italic text-gray-500 dark:text-gray-400">
+        {loading ? "Uploading..." : "Images ready"}
+      </span>
+    </div>
 
-      <label className="text-lg font-semibold text-black dark:text-white">
-        Images
-        <input
-          type="file"
-          className="border border-gray-300 dark:border-gray-600 rounded-xl p-2 mt-2 w-full focus:outline-none"
-          onChange={handleimages}
-        />
-      </label>
+    {/* Image Upload */}
+    <div>
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Upload Image</label>
+      <input
+        type="file"
+        onChange={handleimages}
+        className="w-full border border-gray-300 dark:border-gray-600 rounded-xl p-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+      />
+    </div>
 
+    {/* Submit Button */}
+    <div className="flex justify-center">
       <button
         type="submit"
-        className="border border-black dark:border-white dark:text-white rounded-xl h-10 w-24 mx-auto mt-4 hover:bg-blue-200 dark:hover:bg-blue-800 transition"
+        className="w-full bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-800 text-white font-semibold py-2 rounded-xl shadow-md transition duration-300"
       >
-        Sell
+        Sell Now 🚀
       </button>
     </div>
   </form>
 </div>
-
-
 </div>
+
 </>
 
 
