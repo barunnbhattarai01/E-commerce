@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removetochart } from "./Store/tosilces"; 
+import { removetochart } from "../store/tosilces"; 
 
 function Cart() {
   const dispatch = useDispatch();

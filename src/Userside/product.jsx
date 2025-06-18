@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import { useDispatch } from "react-redux";
-import { addtochart } from "./Store/tosilces";
+import { addtochart } from "../store/tosilces";
 import { motion } from "framer-motion";
 
 function Product(){

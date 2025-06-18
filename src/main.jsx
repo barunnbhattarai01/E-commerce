@@ -2,22 +2,22 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import Product from './component/product.jsx'
-import Login from './component/login.jsx'
-import Cart from './component/chart.jsx' 
+import Product from './Userside/product.jsx'
+import Login from './Authentication/login.jsx'
+import Cart from './Userside/chart.jsx' 
 
 import {
   createBrowserRouter,  RouterProvider,createRoutesFromElements,Route}  from "react-router-dom"
 
-import Navbar from './component/navbar.jsx';
-import Intro from './component/intro.jsx'
-import Services from './component/service.jsx'
-import Signup from './component/sigup.jsx'
-import Getdata from './component/getproduct.jsx'
-import Adminlogin from './component/adminlogin.jsx'
-import Ai from './component/AI.jsx'
-import MainPage from './component/landingpage/mainpage.jsx'
-import { store } from './component/Store/store.jsx'
+import Navbar from './Userside/navbar.jsx'
+import Intro from './Userside/intro.jsx'
+import Services from './Adminside/service.jsx'
+import Signup from './Authentication/sigup.jsx'
+import Getdata from './Userside/getproduct.jsx'
+import Adminlogin from './Authentication/adminlogin.jsx'
+import Ai from './Userside//AI.jsx'
+import MainPage from './landingpage/mainpage.jsx'
+import {store } from './store/store.jsx'
 import { Provider } from 'react-redux'
 
 const router=createBrowserRouter(

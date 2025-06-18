@@ -1,7 +1,7 @@
 import React from "react"
 import { db } from "../../firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
-import Product from "./product";
+import Product from "../Userside/product";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -216,7 +216,7 @@ return(
       User Section
     </Link>
     <button
-    onClick={() => navigate("/")}
+    onClick={() => navigate("/login")}
     className="text-[20px] hover:bg-blue-200  px-6 cursor-pointer"
   >
     Log out

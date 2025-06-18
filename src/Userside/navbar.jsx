@@ -65,7 +65,7 @@ return(
 
   </div>
   <div className="text-2xl p-3">
-   <button className="" onClick={()=>navigate("/")}>{<LogOut size={33}/>}</button>
+   <button className="" onClick={()=>navigate("/login")}>{<LogOut size={33}/>}</button>
 </div>
 
  </div>
