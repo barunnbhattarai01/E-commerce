@@ -24,7 +24,7 @@ function Getdata() {
 
   return (
     <>
-    <div className="w-full bg-teal-200 h-auto ">
+    <div className="w-full bg-teal-200 min-h-screen dark:bg-black ">   {/* min-h-screen act as both h-screen and h-auto */}
    <h1 className="font-bold text-3xl  p-5 text-center  dark:text-white">
   The products currently on sale
 </h1>
