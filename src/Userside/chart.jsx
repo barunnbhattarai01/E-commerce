@@ -7,11 +7,11 @@ function Cart() {
   const items = useSelector((state) => state.card); 
 
   return (
-    <div className="p-6 dark:text-white">
+    <div className="p-6 dark:text-white bg-teal-200 dark:bg-black h-screen">
       <h2 className="text-2xl font-bold mb-6"> Products in Cart</h2>
 
       {items.length===0 ? (
-        <p className="text-gray-500">Your cart is empty.</p>
+        <p className="text-gray-500 font-bold">Your cart is empty.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {items.map((item) => (

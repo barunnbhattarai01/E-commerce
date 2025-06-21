@@ -24,11 +24,12 @@ function Getdata() {
 
   return (
     <>
-   <h1 className="font-bold text-3xl mt-5 text-center dark:text-white">
+    <div className="w-full bg-teal-200 h-auto ">
+   <h1 className="font-bold text-3xl  p-5 text-center  dark:text-white">
   The products currently on sale
 </h1>
 
-<div className="flex flex-wrap justify-center gap-10 mt-8">
+<div className="flex flex-wrap justify-center gap-10 mt-8 ">
   {geted.map((items, index) => (
     <motion.div
     initial={{scale:0.9,opacity:0}}
@@ -54,7 +55,7 @@ function Getdata() {
     </motion.div>
   ))}
 </div>
-
+</div>
     </>
   );
 }

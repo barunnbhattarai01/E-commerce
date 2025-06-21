@@ -37,7 +37,7 @@ return(
     />
   </label>
 
-  <div className="flex flex-wrap gap-10 justify-center p-10 dark:text-white">
+  <div className="flex flex-wrap gap-10 justify-center p-10 dark:text-white bg-teal-200 dark:bg-black">
     {filteredproduct.length === 0 ? (
       <p className="text-xl font-semibold text-gray-500 dark:text-gray-400 mt-10">
         No product found
