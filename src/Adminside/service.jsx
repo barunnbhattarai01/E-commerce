@@ -208,21 +208,21 @@ return(
       </div>
 
    {open && (
-  <div className="flex flex-col items-end dark:text-white ">
+  <div className="flex flex-col items-start w-full px-2 py-2 gap-3 dark:text-white z-10 text-base md:hidden absolute bg-amber-300 ">
     <Link
       to="/items"
-      className="text-[20px] hover:bg-blue-200 p-2 rounded cursor-pointer"
+      className="text-[20px] hover:bg-blue-200  rounded cursor-pointer"
     >
       User Section
     </Link>
     <button
     onClick={() => navigate("/login")}
-    className="text-[20px] hover:bg-blue-200  px-6 cursor-pointer"
+    className="text-[20px] hover:bg-blue-200   cursor-pointer"
   >
     Log out
   </button>
-    <button onClick={togglebutton} className="text-[20px] px-6 cursor-pointer">
-      {theme === 'light' ? '🌑' : '☀️'}
+    <button onClick={togglebutton} className="text-[20px] cursor-pointer">
+      {theme === 'light' ? 'Darkmode' : 'Lightmode'}
     </button>
   </div>
 )}
@@ -242,7 +242,7 @@ return(
         type="text"
         value={name}
         onChange={(e) => setname(e.target.value)}
-        placeholder="e.g., MacBook Pro M2"
+        placeholder="e.g.Mobile Phone"
         className="mt-1 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent px-4 py-2 text-black dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
       />
     </div>
@@ -253,7 +253,7 @@ return(
       <textarea
         value={quantity}
         onChange={(e) => setquantity(e.target.value)}
-        placeholder="Write about the product..."
+        placeholder="Write about the product like price..."
         className="mt-1 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent px-4 py-2 text-black dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
         rows={4}
       />

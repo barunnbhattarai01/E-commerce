@@ -32,8 +32,8 @@ const info=async(e)=>{
 }
 
 return(
-<div className=" ">
- <form onSubmit={info} className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-100 to-blue-200">
+<div className="">
+ <form onSubmit={info} className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-100 to-red-200">
       <div className="flex flex-col gap-4 p-8 rounded-2xl shadow-lg bg-white w-96 border border-gray-300">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Login</h2>
         

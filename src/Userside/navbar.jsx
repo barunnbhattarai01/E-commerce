@@ -90,7 +90,7 @@ return(
   
   {/* if open is true which means it is open and when it is open it show below detail*/}
   {open &&(
-  <div className="flex flex-col items-end mr-5 dark:text-black shadow-lg">
+  <div className="flex flex-col items-start text-black text-base gap-4 px-2 py-2  w-full z-10 absolute dark:text-black shadow-lg bg-gradient-to-r from-yellow-200 to-yellow-300">
   <Link to="/home" className=""  onClick={togglemenu}>Home</Link>
     <Link to="/items" className="" onClick={togglemenu}>Items</Link>
 <Link to="/products" className="" onClick={togglemenu}>Products</Link>

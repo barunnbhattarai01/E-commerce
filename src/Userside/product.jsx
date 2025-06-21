@@ -65,7 +65,7 @@ return(
 
           <div className="flex justify-center mt-4">
             <button
-              className="border border-black dark:border-white rounded-xl px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-800 transition"
+              className="border border-black dark:border-white rounded-xl px-4 py-2 hover:bg-blue-100 cursor-pointer dark:hover:bg-blue-800 transition"
               onClick={() => dispatch(addtochart(pro))}
             >
               Add to Cart

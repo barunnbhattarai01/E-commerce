@@ -32,7 +32,7 @@ function MainPage() {
         </div>
 
         {/* Navbar for mobile */}
-        <div className="md:hidden flex justify-end items-center p-3">
+        <div className="md:hidden flex justify-end items-center p-3 bg-gradient-to-r from-white to-white top-24">
           <button onClick={togglemenu}>
             {open ? <X size={33} /> : <Menu size={33} />}
           </button>
@@ -43,7 +43,7 @@ function MainPage() {
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col items-end mr-5 gap-2 text-[20px]"
+            className="flex flex-col items-start px-2 py-2 gap-5 text-base z-10 absolute w-full bg-gradient-to-r from-yellow-100 to-yellow-100 "
           >
             <p onClick={togglemenu}>Home</p>
             <Link to='img' onClick={togglemenu}>Images</Link>
@@ -102,7 +102,7 @@ function MainPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="border border-black p-4 rounded-4xl md:w-96 w-72"
+            className="border border-black p-4 rounded-4xl md:w-96 w-72 shadow-2xl"
           >
             ✅ Anyone can list products for sale and connect with potential buyers easily.
           </motion.div>
@@ -110,7 +110,7 @@ function MainPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="border border-black p-4 rounded-4xl md:w-96 w-72"
+            className="border border-black p-4 rounded-4xl md:w-96 w-72 shadow-2xl"
           >
             ✅ We provide secure payment options and a smooth shopping experience.
           </motion.div>
@@ -118,7 +118,7 @@ function MainPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="border border-black p-4 rounded-4xl md:w-96 w-72"
+            className="border border-black p-4 rounded-4xl md:w-96 w-72 shadow-2xl"
           >
             ✅ Fast delivery and reliable customer service ensure customer satisfaction.
           </motion.div>
@@ -126,7 +126,7 @@ function MainPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="border border-black p-4 rounded-4xl md:w-96 w-72"
+            className="border border-black p-4 rounded-4xl md:w-96 w-72 shadow-2xl"
           >
             ✅ Our platform aims to empower local sellers and promote online trading in a safe environment.
           </motion.div>
