@@ -30,7 +30,7 @@ function Getdata() {
 </h1>
 
 <div className="flex flex-wrap justify-center gap-10 mt-8 ">
-  {geted.map((items, index) => (
+  {geted.length===0 ? <p className="font-bold text-2xl dark:text-white">No product </p>: geted.map((items, index) => (
     <motion.div
     initial={{scale:0.9,opacity:0}}
     whileInView={{scale:1,opacity:1}}
