@@ -3,7 +3,7 @@ import { db } from "../../firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "../Userside/product";
 import {useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { X,Menu } from "lucide-react";
 function Services(){
@@ -44,7 +44,7 @@ const[name,setname]=React.useState("");
 const[quantity,setquantity]=React.useState('');
 const[img,setimg]=React.useState('');
 const[loading,setloading]=useState(false);
-const[data,setdata]=useState("");
+const[datas,setdatas]=useState([]);
 const[theme,settheme]=useState(()=>{
   return localStorage.getItem("theme")
 })
@@ -103,7 +103,20 @@ const data={
 try{
  await addDoc(collection(db,'detail'),data);
  alert("product added to items")
-
+setdatas((prev)=>{
+const newdata=[
+  ...prev,
+  {
+    name:name,
+    quantity:quantity,
+    images:img,
+  }
+]
+localStorage.setItem("data",JSON.stringify(newdata));
+return newdata;    //it return the new array
+}
+)
+console.log(datas)
 setname("");
 setquantity("");
 setimg("")
@@ -118,6 +131,15 @@ catch(err){
 
 
 }
+//mount data from local storage for dashboard
+React.useEffect(() => {
+  const savedDatas = localStorage.getItem("data");
+  if (savedDatas) {
+    setdatas(JSON.parse(savedDatas));
+  }
+}, []);
+
+
 
 //dark mode
  React.useEffect(()=>
@@ -232,7 +254,7 @@ return(
   
 
 
-<div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-white  to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-4">
+<div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-white  to-gray-200 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 px-4">
   <form onSubmit={takeit} className="w-full max-w-md bg-white dark:bg-gray-950 rounded-2xl shadow-2xl p-8 space-y-6 border border-gray-200 dark:border-gray-700 transition-all">
     <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white">Sell your Product</h2>
 
@@ -289,6 +311,42 @@ return(
   </form>
 </div>
 </div>
+
+
+
+
+{/*Dashboard */}
+<div className="min-h-screen w-auto bg-gradient-to-r from-white to-gray-200 dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 p-6">
+  <h2 className="text-3xl font-bold mb-8 text-center text-black dark:text-white">
+    Dashboard
+  </h2>
+
+  <div className="flex flex-wrap justify-center gap-8">
+    {datas.map((item, index) => (
+      <div
+        key={item.id || index}
+        className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col md:flex-row gap-6 p-6 cursor-pointer group max-w-md w-full"
+      >
+        <img
+          src={item?.images || ""}
+          alt={item?.name || "No product"}
+          className="w-full md:w-40 h-40 md:h-40 object-cover rounded-xl shadow-md group-hover:scale-105 transform transition-transform duration-300 flex-shrink-0"
+        />
+        <div className="flex flex-col justify-center">
+          <h3 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+            {item?.name || "Unknown Product"}
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            {item?.quantity || "No description available"}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+
 
 </>
 
