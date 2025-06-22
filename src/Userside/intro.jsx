@@ -28,7 +28,7 @@ function Intro() {
             secure.
             <Link
               to="/ai"
-              className="border border-red-500 rounded-2xl p-2 mt-2 cursor-pointer hover:bg-orange-400"
+              className="md:mt-4 text-black bg-gradient-to-r from-teal-100 to-red-100 rounded-2xl p-2 mt-2 cursor-pointer hover:bg-orange-400"
             >
               About us
             </Link>

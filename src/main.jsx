@@ -20,12 +20,14 @@ import MainPage from './landingpage/mainpage.jsx'
 import {store } from './store/store.jsx'
 import { Provider } from 'react-redux'
 import Photo from './landingpage/images.jsx'
+import Feedback from './landingpage/Feedback.jsx'
 
 const router=createBrowserRouter(
 
    createRoutesFromElements(
       <>
       <Route path='/' element={<MainPage/>}/>
+      <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/img' element={<Photo/>}/>
       <Route path='/login' element={<Login/>}/>
          <Route path='/admin' element={<Adminlogin/>}/>

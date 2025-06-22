@@ -12,14 +12,14 @@ function Getdata() {
       const q = query(collection(db, "detail"), orderBy("createdAt", "desc"));
       const document = await getDocs(q);
 
-      const eventlist = document.docs.map((doc) => ({
+      const eventlist = document.docs.map((doc) => ({      //document is  Querysnapshot and  document.docs is an array of DocumentSnapshot
         id: doc.id,
-        ...doc.data(),
+        ...doc.data(),        //its give data in object
       }));
       setgeted(eventlist);
     };
 
-    fetchdata();
+    fetchdata();  //it mounted one time
   }, []);
 
   return (

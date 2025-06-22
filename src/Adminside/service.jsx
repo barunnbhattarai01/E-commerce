@@ -44,6 +44,7 @@ const[name,setname]=React.useState("");
 const[quantity,setquantity]=React.useState('');
 const[img,setimg]=React.useState('');
 const[loading,setloading]=useState(false);
+const[data,setdata]=useState("");
 const[theme,settheme]=useState(()=>{
   return localStorage.getItem("theme")
 })
@@ -77,7 +78,7 @@ data.append("cloud_name","dsql24lj1");
     body:data ,
   }
   )
-  const imagesurl = await res.json();
+  const imagesurl = await res.json();    //res.json convert server response into usable plain object
 //  console.log(imagesurl.url)
   setimg(imagesurl.url)
 setloading(false)
@@ -208,7 +209,7 @@ return(
       </div>
 
    {open && (
-  <div className="flex flex-col items-start w-full px-2 py-2 gap-3 dark:text-white z-10 text-base md:hidden absolute bg-amber-300 ">
+  <div className="flex flex-col items-start w-full px-2 py-2 gap-3 dark:text-white z-10 text-base  absolute bg-amber-300 ">
     <Link
       to="/items"
       className="text-[20px] hover:bg-blue-200  rounded cursor-pointer"
