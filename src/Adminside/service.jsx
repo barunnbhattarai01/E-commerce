@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { db } from "../../firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "../Userside/product";
@@ -6,6 +6,9 @@ import {useState} from "react";
 import { data, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { X,Menu } from "lucide-react";
+import usercontext from "../context/usercontext";
+
+
 function Services(){
 
 
@@ -18,6 +21,7 @@ const[quantity,setquantity]=React.useState('');
 const[img,setimg]=React.useState('');
 const[loading,setloading]=useState(false);
 const[datas,setdatas]=useState([]);
+const {user}=useContext(usercontext)
 const[theme,settheme]=useState(()=>{
   return localStorage.getItem("theme")
 })
@@ -158,7 +162,7 @@ return(
     <div>
       <div className="flex items-center justify-between px-6 p-4">
         <h1 className="font-bold md:text-3xl text-2xl dark:text-white">
-          Welcome Back, Admin
+          Welcome Back, {user}
         </h1>
 
         <button onClick={toggleXandMenu} className="flex justify-end dark:text-white">

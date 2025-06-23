@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { auth2 } from "../../firebase2.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import usercontext from "../context/usercontext";
 
 
 function Adminlogin(){
@@ -10,6 +11,8 @@ function Adminlogin(){
 const[username,setusername]=React.useState("");
 const[password,setpassword]=React.useState("");
 const [error,seterror]=React.useState("");
+const[admin,setadmin]=React.useState("")
+const {setuser}=useContext(usercontext);
 const navigate =useNavigate();
 
 const info=async(e)=>{
@@ -18,6 +21,7 @@ const info=async(e)=>{
 
  try{
    await signInWithEmailAndPassword(auth2,username,password);
+   setuser(admin)
    console.log("login sucessfully");
    navigate("/service")
 
@@ -37,6 +41,19 @@ return(
       <div className="flex flex-col gap-4 p-8 rounded-2xl shadow-lg bg-white w-96 border border-gray-300">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Admin Login</h2>
         
+
+          <div className="flex flex-col">
+          <label className="text-gray-700 font-medium mb-1">Username:</label>
+          <input
+            type="text"
+            value={admin}
+            onChange={(e) => setadmin(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+
         <div className="flex flex-col">
           <label className="text-gray-700 font-medium mb-1">Email</label>
           <input
