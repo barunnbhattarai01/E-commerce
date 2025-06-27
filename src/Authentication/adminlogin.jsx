@@ -77,7 +77,7 @@ return(
             required
           />
         </div>
-
+        {error && <p className="text-red-600 text-[19px]">Invalid username and password</p>}
         <button
           type="submit"
           className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-200"

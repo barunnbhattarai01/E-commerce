@@ -60,6 +60,7 @@ return(
             required
           />
         </div>
+        {error && <p className="text-red-600 text-[19px]">Invalid password or username</p>}
 
         <button
           type="submit"
