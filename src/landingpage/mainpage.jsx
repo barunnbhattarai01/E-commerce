@@ -146,54 +146,94 @@ function MainPage() {
         ></div>
       </motion.div>
 
-      {/* Contact */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-        className="h-screen w-auto bg-gradient-to-b from-black to-black p-4"
-      >
-        <div className="text-white text-[40px] flex justify-center mb-6">Contact</div>
-        <div className="text-white text-2xl flex flex-col md:flex-row flex-wrap gap-8 md:justify-center items-start">
-          <div className="flex items-center gap-2">
-            <FaFacebook size={33} />
-            <span>Barunn Bhattarai</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <FaInstagram size={33} />
-            <span>Barunn Bhattarai Sharma</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <FaGithub size={33} />
-            <span>barunnbhattarai01</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <SiGmail size={33} />
-            <span>barunbhattarai@gmail.com</span>
+     
+            {/* Need */}
+    <div className="bg-sky-600 min-h-screen w-full px-4 py-10">
+      <div className="flex flex-col justify-center items-center gap-2 mb-12">
+        <div className="text-2xl text-white font-bold text-center">
+          Tell your  Needs
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="h-px w-12 bg-white" />
+          <div className="w-2 h-2 bg-lime-500 rounded-full" />
+          <div className="h-px w-12 bg-white" />
+        </div>
+      </div>
+
+      <form className="max-w-6xl mx-auto space-y-10">
+        <div className="text-white text-xl font-bold">
+          <p className="mb-4">Interested in:</p>
+          <div className="flex flex-wrap gap-6 border border-white p-6 rounded-xl text-sm md:text-base">
+            {[
+              "Shirts",
+              "paints",
+              "t-shirt",
+              "underwear",
+              "Alarm System",
+              "Door Controls",
+              "Laptop",
+              "Watch",
+            ].map((item) => (
+              <label key={item} className="flex items-center gap-2 w-1/2 md:w-1/4">
+                <input
+                  type="checkbox"
+                  name="interest"
+                  value={item}
+                  className="accent-lime-500"
+                />
+                {item}
+              </label>
+            ))}
           </div>
         </div>
 
-        {/* Map */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          viewport={{ once: true }}
-          className=" flex items-center md:mt-40 mt-30  gap-2 flex-col"
-        >
-          <div className="text-white text-2xl font-bold max-h-96 max-w-full p-2">Map</div>
-          <div className="h-auto max-w-4xl">
-            <iframe
- src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51869.67625827751!2d139.67712000946372!3d35.6559497128004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5f8e737217%3A0xc07b8ba9c0f2b12b!2z77ym772P772V772O772EIO-8re-8te-8qu-8qSDpnZLlsbE!5e0!3m2!1sne!2snp!4v1750078964320!5m2!1sne!2snp"        
-              style={{ border: 0, width: '100%', maxWidth: '300px', height:"100%" ,maxHeight:'300px'}}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </motion.div>
-      </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input
+            type="text"
+            className="bg-white text-black px-4 py-3 rounded-md w-full"
+            placeholder="Enter your name"
+            required
+          />
+          <input
+            type="email"
+            className="bg-white text-black px-4 py-3 rounded-md w-full"
+            placeholder="Enter your email"
+            required
+          />
+          <input
+            type="tel"
+            className="bg-white text-black px-4 py-3 rounded-md w-full"
+            placeholder="Enter your phone number"
+            required
+          />
+          <input
+            type="text"
+            className="bg-white text-black px-4 py-3 rounded-md w-full"
+            placeholder="Enter your address"
+            required
+          />
+          <textarea
+            className="bg-white text-black px-4 py-3 rounded-md w-full md:col-span-2"
+            placeholder="Your message..."
+          ></textarea>
+        </div>
+
+        <div className="text-center">
+          <button
+            type="submit"
+            className="text-2xl text-white bg-black px-8 py-3 rounded-2xl hover:bg-white hover:text-black transition"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+        {/* Footer */}
+   <div className="">
+<footer className="bg-gray-800 text-white py-6 text-center">
+        <p>© 2025 Barun Bhattarai. All rights reserved.</p>
+      </footer>
+</div>
     </>
   );
 }

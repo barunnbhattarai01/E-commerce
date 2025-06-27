@@ -171,7 +171,7 @@ return(
       </div>
 
    {open && (
-  <div className="flex flex-col items-start w-full px-2 py-2 gap-3 dark:text-white z-10 text-base  absolute bg-amber-100 ">
+  <div className="flex flex-col items-start w-full px-2 py-2 gap-3 dark:text-black font-bold z-10 text-base  absolute bg-amber-100 ">
     <Link
       to="/items"
       className="text-[20px] hover:bg-blue-200  rounded cursor-pointer"
