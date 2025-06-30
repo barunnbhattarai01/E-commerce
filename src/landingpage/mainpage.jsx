@@ -19,8 +19,7 @@ function MainPage() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="h-screen w-auto bg-gradient-to-r from-pink-500 to-blue-400"
-      >
+        className="h-screen w-auto bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400  ">
         <div className="hidden md:flex justify-between p-5 flex-wrap">
           <div className="text-2xl font-bold">Sasto Pasal</div>
           <div className="flex text-2xl font-bold gap-10 flex-wrap">
@@ -32,7 +31,7 @@ function MainPage() {
         </div>
 
         {/* Navbar for mobile */}
-        <div className="md:hidden flex justify-end items-center p-3 bg-gradient-to-r from-white to-white top-24">
+        <div className="md:hidden flex justify-end items-center p-3 bg-white relative z-50 ">
           <button onClick={togglemenu}>
             {open ? <X size={33} /> : <Menu size={33} />}
           </button>
@@ -63,7 +62,7 @@ function MainPage() {
             border: "none",
           }}
         ></div>
-
+      
         {/* Introduction section */}
      <motion.div
   initial={{ y: 40, opacity: 0 }}
@@ -96,9 +95,9 @@ function MainPage() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="h-screen w-auto bg-gradient-to-l from-yellow-300 to-violet-200 relative p-4"
+        className="h-screen w-auto bg-gradient-to-r from-pink-100 via-indigo-100 to-purple-100 relative p-4  shadow-2xl"
       >
-        <div className="text-2xl font-bold mt-3 text-black">Services</div>
+        <div className="text-4xl p-3 font-bold mt-3 text-black text-center ">Services</div>
 
         <div className="flex flex-col md:flex-row md:flex-wrap gap-6 text-black mt-4 font-bold md:text-2xl">
           <motion.div
@@ -148,7 +147,8 @@ function MainPage() {
 
      
             {/* Need */}
-    <div className="bg-sky-600 min-h-screen w-full px-4 py-10">
+    <div className="bg-gradient-to-br from-[#1e293b] via-[#0f172a] to-[#0f172a]
+ min-h-screen w-full px-4 py-10">
       <div className="flex flex-col justify-center items-center gap-2 mb-12">
         <div className="text-2xl text-white font-bold text-center">
           Tell your  Needs
@@ -234,6 +234,8 @@ function MainPage() {
         <p>© 2025 Barun Bhattarai. All rights reserved.</p>
       </footer>
 </div>
+
+
     </>
   );
 }
