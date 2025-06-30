@@ -104,7 +104,7 @@ function MainPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="p-4 bg-slate-200 rounded-4xl md:w-96 w-72 shadow-2xl"
+            className="p-4 bg-slate-200 rounded-4xl md:w-96 w-72 shadow-2xl hover:scale-105"
           >
             ✅ Anyone can list products for sale and connect with potential buyers easily.
           </motion.div>
@@ -112,7 +112,7 @@ function MainPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="bg-slate-200 p-4 rounded-4xl md:w-96 w-72 shadow-2xl"
+            className="bg-slate-200 p-4 rounded-4xl md:w-96 w-72 shadow-2xl hover:scale-105"
           >
             ✅ We provide secure payment options and a smooth shopping experience.
           </motion.div>
@@ -120,7 +120,7 @@ function MainPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="bg-slate-200 p-4 rounded-4xl md:w-96 w-72 shadow-2xl"
+            className="bg-slate-200 p-4 rounded-4xl md:w-96 w-72 shadow-2xl hover:scale-105"
           >
             ✅ Fast delivery and reliable customer service ensure customer satisfaction.
           </motion.div>
@@ -128,7 +128,7 @@ function MainPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="bg-slate-200 p-4 rounded-4xl md:w-96 w-72 shadow-2xl"
+            className="bg-slate-200 p-4 rounded-4xl md:w-96 w-72 shadow-2xl hover:scale-105"
           >
             ✅ Our platform aims to empower local sellers and promote online trading in a safe environment.
           </motion.div>
@@ -147,10 +147,9 @@ function MainPage() {
 
      
             {/* Need */}
-    <div className="bg-gradient-to-br from-[#1e293b] via-[#0f172a] to-[#0f172a]
- min-h-screen w-full px-4 py-10">
+    <div className="bg-gradient-to-br from-teal-100 to-violet-400 min-h-screen w-full px-4 py-10 ">
       <div className="flex flex-col justify-center items-center gap-2 mb-12">
-        <div className="text-2xl text-white font-bold text-center">
+        <div className="text-4xl text-black font-bold text-center">
           Tell your  Needs
         </div>
         <div className="flex items-center gap-2">
@@ -162,8 +161,8 @@ function MainPage() {
 
       <form className="max-w-6xl mx-auto space-y-10">
         <div className="text-white text-xl font-bold">
-          <p className="mb-4">Interested in:</p>
-          <div className="flex flex-wrap gap-6 border border-white p-6 rounded-xl text-sm md:text-base">
+          <p className="mb-4 text-2xl text-black">Interested in:</p>
+          <div className="flex flex-wrap gap-6 border text-black  border-white p-6 rounded-xl text-sm md:text-base">
             {[
               "Shirts",
               "paints",
@@ -174,7 +173,7 @@ function MainPage() {
               "Laptop",
               "Watch",
             ].map((item) => (
-              <label key={item} className="flex items-center gap-2 w-1/2 md:w-1/4">
+              <label key={item} className="flex items-center gap-2 w-1/2 md:w-1/4 text-[19px]">
                 <input
                   type="checkbox"
                   name="interest"
