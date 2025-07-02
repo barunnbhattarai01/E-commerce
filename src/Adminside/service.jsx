@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { db } from "../../firebase.config";
+import { db } from "../firebase/firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "../Userside/product";
 import {useState} from "react";

@@ -1,5 +1,5 @@
 import { getDocs, collection, query, orderBy } from "firebase/firestore";
-import { db } from "../../firebase.config";
+import { db } from "../firebase/firebase.config";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 

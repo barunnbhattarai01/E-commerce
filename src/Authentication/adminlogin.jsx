@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { auth2 } from "../../firebase2.config";
+import { auth2 } from "../firebase/firebase2.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";

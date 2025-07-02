@@ -22,12 +22,13 @@ import { Provider } from 'react-redux'
 import Photo from './landingpage/images.jsx'
 import Feedback from './landingpage/Feedback.jsx'
 import Usercontextprovider from './context/usercontextprovider.jsx'
+import MainLanding from './landingpage/mainlanding.jsx'
 
 const router=createBrowserRouter(
 
    createRoutesFromElements(
       <>
-      <Route path='/' element={<MainPage/>}/>
+      <Route path='/' element={<MainLanding/>}/>
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/img' element={<Photo/>}/>
       <Route path='/login' element={<Login/>}/>
