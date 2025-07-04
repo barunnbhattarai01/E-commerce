@@ -1,6 +1,13 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,useRef} from "react";
 import { Link } from "react-router-dom";
 import { X, Menu } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+
 
 
 const MainLanding = () => {
@@ -10,7 +17,7 @@ const MainLanding = () => {
   
   //dark and light mode
   useEffect(()=>{
-  if(theme==='light'){
+  if(theme==='dark'){
     document.documentElement.classList.add("dark")
   }
   else{
@@ -29,8 +36,96 @@ const MainLanding = () => {
 const togglemenu = () => {
     setopen(prev => !prev);
   };
+    
+    //gsap
+   const boxref=useRef(null);  //passing reference to the div 
+   const divref =useRef(null);//for breand
+   const arrivals =useRef(null);//arrivals section
+   const youngfav =useRef(null); //for younf fav section
+   const downloadref=useRef(null)
+  useEffect(()=>
+  {
+   gsap.fromTo(    
+boxref.current,    //reference to current div 
+{y:100,opacity:0},   //intial point
+{
+  y:0,
+  opacity:1,             //ending point
+  duration:1.5,
+  scrollTrigger:{             //scrolltrigger means when the div or box came in view the animation satrt
+    trigger:boxref.current,
+    start:"top 80%",                //start the animation when the div covered 80% view 
+    toggleActions:"play none none reverse",   //play:scrooling down reverese:scrooll back up none :nothing
+  }
+} ),
+//for breand
+gsap.fromTo(
+divref.current,
+{x:100,opacity:0},
+{x:0,opacity:1,duration:3,
+  scrollTrigger:{
+    trigger:divref.current,
+    start:"top 70%",
+    toggleActions:"play none none reverse"
+  }
+},
+
+
+   );
+   // for arrivals section
+    gsap.fromTo(    
+arrivals.current,   
+{y:100,opacity:0},  
+{
+  y:0,
+  opacity:1,            
+  duration:1.5,
+  scrollTrigger:{             
+    trigger:arrivals.current,
+    start:"top 80%",               
+    toggleActions:"play none none reverse", 
+  }
+} ),
+//for young arrivalsa
+gsap.fromTo(
+  youngfav.current,
+  {x:100,opacity:0},
+  {
+    x:0,
+    opacity:1,
+    duration:4,
+    scrollTrigger:{
+      trigger:youngfav.current,
+      start:"top 80%",
+      toggleActions:"play none none reverse",
+    }
+  }
+),
+gsap.fromTo(
+  downloadref.current,
+  {y:100,opacity:0},
+  {
+    y:0,
+    opacity:1,
+    duration:3,
+    scrollTrigger:{
+      trigger:downloadref.current,
+      start:"top 80%",
+      toggleActions:"play none none reverse"
+    }
+  }
+)
+   
+   
+
+
+
+  },[])
+
+   
 
   return (
+    <div className="overflow-x-hidden">
     <div className="dark:bg-black bg-slate-100">
       {/*desktop navbar */}
       <nav className="hidden md:flex bg-white text-black w-full uppercase tracking-[0.22px] md:text-[22px] p-11">
@@ -84,7 +179,7 @@ const togglemenu = () => {
 
       {/*hero section*/}
       <section className="flex flex-col container mx-auto bg-[#F4F6F5] rounded-[59px] pt-16 px-10 md:items-center md:px-20 
-      md:pt-[68px] md:flex-row md:justify-between gap-10 z-30 dark:bg-black dark:text-white">
+      md:pt-[68px] md:flex-row md:justify-between gap-10 z-30 dark:bg-black dark:text-white" ref={boxref}>
         <div className="flex flex-col items-start text-black md:pb-[68px] z-10 dark:bg-black dark:text-white">
           <h1 className="text-4xl font-black leading-[125%] sm:text-5xl md:text-[96px] md:leading-[125%]">
              <span>LET’S</span><br />
@@ -106,7 +201,7 @@ const togglemenu = () => {
       </section>
 
       {/* brand logooo */}
-      <section className="flex flex-col justify-center items-center gap-[121px] my-16 py-[61px] md:flex-row dark:bg-white ">
+      <section className="flex flex-col justify-center items-center gap-[121px] my-16 py-[61px] md:flex-row dark:bg-white " ref={divref}>
         {["hm", "obey", "shopify", "lacoste", "levis", "amazon"].map((brand, index) => (
           <div key={index} className="w-[150px]">
             <img src={`/${brand}.png`} alt={brand} />
@@ -115,7 +210,7 @@ const togglemenu = () => {
       </section>
 
       {/* new arraivals */}
-      <section className="flex flex-col container items-start gap-28 mx-auto px-[10px] dark:bg-black dark:text-white">
+      <section className="flex flex-col container items-start gap-28 mx-auto px-[10px] dark:bg-black dark:text-white" ref={arrivals} >
         <div className="relative text-black dark:bg-black dark:text-white">
           <h2 className="text-4xl font-black after:content-oval after:absolute after:left-[50%] after:-bottom-2.5 after:-z-10 md:text-5xl">NEW ARRIVALS</h2>
         </div>
@@ -136,7 +231,7 @@ const togglemenu = () => {
       </section>
 
       {/* young section */}
-      <section className="flex flex-col container items-start my-[190px] gap-28 mx-auto dark:bg-black dark:text-white">
+      <section className="flex flex-col container items-start my-[190px] gap-28 mx-auto dark:bg-black dark:text-white" ref={youngfav}>
         <div className="relative text-black dark:bg-black dark:text-white">
           <h2 className="text-4xl font-black after:content-oval after:absolute after:left-[50%] after:-bottom-2.5 after:-z-10 md:text-5xl">Young’s Favourite</h2>
         </div>
@@ -157,7 +252,7 @@ const togglemenu = () => {
       </section>
 
       {/*download section*/}
-      <section className="container mx-auto flex flex-col my-[190px] gap-28 md:flex-row md:justify-evenly md:items-center dark:bg-black dark:text-white">
+      <section className="container mx-auto flex flex-col my-[190px] gap-28 md:flex-row md:justify-evenly md:items-center dark:bg-black dark:text-white" ref={downloadref}>
         <div className="flex-1 flex flex-col items-center text-center md:items-start">
           <h4 className="text-4xl md:text-5xl font-black tracking-[3px] leading-[130%] md:leading-[150%] mb-10">
             DOWNLOAD APP & <br /> GET THE VOUCHER!
@@ -211,6 +306,7 @@ const togglemenu = () => {
           ))}
         </div>
       </footer>
+    </div>
     </div>
   );
 };

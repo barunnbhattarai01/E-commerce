@@ -14,7 +14,7 @@ const[rating,setrating]=useState(0);
 
 //dark and light mode
 useEffect(()=>{
-if(theme==='light'){
+if(theme==='dark'){
   document.documentElement.classList.add("dark")
 }
 else{

@@ -3,7 +3,7 @@ import { db } from "../firebase/firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "../Userside/product";
 import {useState} from "react";
-import { data, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { X,Menu } from "lucide-react";
 import usercontext from "../context/usercontext";
