@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removetochart } from "../store/tosilces"; 
+import { removetochart,loadFromlocalStorage } from "../store/tosilces"; 
 
 function Cart() {
+
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.card); 
+  const items = useSelector((state) => state.card.card)  ;
+  
+
+  useEffect(()=>{
+  localStorage.setItem("product",JSON.stringify(items))
+},[items])
+
+
+  //getting items from local storage
+useEffect(()=>{
+const stored=localStorage.getItem("product");
+if(stored){
+  dispatch(loadFromlocalStorage(JSON.parse(stored)));
+  console.log(stored)
+}
+},[dispatch])
+
+
+    
+  
 
   return (
     <div className="p-6 dark:text-white bg-teal-200 dark:bg-black h-screen">

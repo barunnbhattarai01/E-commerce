@@ -1,7 +1,7 @@
 import { createSlice,nanoid } from "@reduxjs/toolkit";
 
 const initialState ={
-    card:[{id:1,product:"shoes"}]
+    card:[]
 }
 
 export const slice=createSlice({
@@ -21,12 +21,15 @@ export const slice=createSlice({
 
 
          },
+         loadFromlocalStorage:(state,action)=>{
+            state.card= action.payload;
+         }
    }
 
 
 
 })
 
-export const {addtochart,removetochart}=slice.actions
+export const {addtochart,removetochart,loadFromlocalStorage}=slice.actions
 export default slice.reducer;
 
