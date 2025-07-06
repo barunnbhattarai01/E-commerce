@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState} from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import ReactMarkdown from "react-markdown";
 
@@ -22,9 +22,10 @@ seterror("plese enter the prompt");
    seterror('')
 
   try{
+    const role =`you are sasto pasal, ai assistant for sasto pasal , a affordable ,non toxic shop where you can buy luxires product`
       const Genai=new GoogleGenerativeAI(apiKEy);
       const model =Genai.getGenerativeModel({model: "gemini-1.5-flash"})
-      const result=await model.generateContent(prompt);
+      const result=await model.generateContent(`${role} ${prompt}`);
    
       const textresponse = result.response.text();
     setresponse(textresponse);
@@ -38,19 +39,15 @@ seterror("plese enter the prompt");
 
 
 
-
   }
-
-
-
 
 return(
 
 <>
-
-<div className="flex flex-col gap-4 items-center mx-auto mt-12 dark:text-white w-80 md:w-96 shadow-lg rounded-2xl p-6 bg-white dark:bg-gray-900">
+<div className="h-screen w-auto bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black">
+  <div className="flex flex-col gap-4 items-center mx-auto  dark:text-white w-80 md:w-96 shadow-lg rounded-2xl p-6 bg-white dark:bg-gray-900">
   <label className="text-2xl font-semibold text-black dark:text-white">
-    Enter the prompt
+    Ask about sasto pasal
   </label>
 
   <input 
@@ -79,21 +76,9 @@ return(
     <ReactMarkdown>{response}</ReactMarkdown>
   </div>
 )}
-
-
-
-
-
-
-
-
+</div>
 </>
-
-
-
 )
-
-
 }
 
 export default Ai;
