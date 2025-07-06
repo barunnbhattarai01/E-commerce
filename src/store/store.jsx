@@ -8,19 +8,36 @@ import { Key } from "lucide-react";
 //persistCoonfig
 
 const persistConfig ={
-   key:'root',
+   key:'root',    // a name for storage
    storage,
 };
 
 //creating the persistedd reducer
-const persistedReducer =  persistReducer(persistConfig,Cartreducer);
+const persistedReducer =  persistReducer(persistConfig,Cartreducer);   //persistReducer help to wrap with catalog with auto-save/load funcatonality
 
 //configure the stire with persisted reducer
 export const store = configureStore({
-   reducer:{
-      card:persistedReducer, 
-   }
-})
+  reducer: {
+    card: persistedReducer,
+  },
+  middleware: (getDefaultMiddleware) =>         //redux only want simple data so when you give non serizalble value you have to say ingore them
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+        ignoredPaths: ['register'],
+      },
+    }),
+});
 
 
-export const presistor =persistStore(store);
+
+export const presistor =persistStore(store); 
+
+
+
+
+
+
+
+//serizable value is like simple number ,string ,object ,array
+//non serizalble value is like function,class,promise 

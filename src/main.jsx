@@ -57,7 +57,7 @@ const router=createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
    <Provider store ={store}>     {/*we warpped the whole router(element) */}
-       <PersistGate loading={null} persistor={presistor}>
+       <PersistGate loading={null} persistor={presistor}>   {/* PersistGate delays rendering until the saved state is loaded */}
          <Usercontextprovider>
     <RouterProvider router={router}/> 
     </Usercontextprovider>
