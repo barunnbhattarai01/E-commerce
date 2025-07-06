@@ -18,7 +18,6 @@ useEffect(()=>{
 const stored=localStorage.getItem("product");
 if(stored){
   dispatch(loadFromlocalStorage(JSON.parse(stored)));
-  console.log(stored)
 }
 },[dispatch])
 

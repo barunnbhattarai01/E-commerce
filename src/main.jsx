@@ -17,12 +17,13 @@ import Getdata from './Userside/getproduct.jsx'
 import Adminlogin from './Authentication/adminlogin.jsx'
 import Ai from './Userside//AI.jsx'
 import MainPage from './landingpage/mainpage.jsx'
-import {store } from './store/store.jsx'
+import {store,presistor } from './store/store.jsx'
 import { Provider } from 'react-redux'
 import Photo from './landingpage/images.jsx'
 import Feedback from './landingpage/Feedback.jsx'
 import Usercontextprovider from './context/usercontextprovider.jsx'
 import MainLanding from './landingpage/mainlanding.jsx'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const router=createBrowserRouter(
 
@@ -56,9 +57,11 @@ const router=createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
    <Provider store ={store}>     {/*we warpped the whole router(element) */}
+       <PersistGate loading={null} persistor={presistor}>
          <Usercontextprovider>
     <RouterProvider router={router}/> 
     </Usercontextprovider>
+    </PersistGate>
     </Provider> 
   </StrictMode>,
 )
