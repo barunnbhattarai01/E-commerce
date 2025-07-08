@@ -128,7 +128,7 @@ gsap.fromTo(
     <div className="overflow-x-hidden">
     <div className="dark:bg-black bg-slate-100">
       {/*desktop navbar */}
-      <nav className="hidden md:flex bg-white text-black w-full uppercase tracking-[0.22px] md:text-[22px] p-11">
+      <nav className="hidden md:flex bg-white text-black w-full uppercase tracking-[0.22px] md:text-[22px] p-11 "> {/*tracking=letterspacing  */}
         <div className="container mx-auto flex flex-row justify-between items-center">
           <div className="font-bold text-4xl">
            SASTO PASAL

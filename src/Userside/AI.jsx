@@ -10,6 +10,25 @@ function Ai(){
      const[prompt,setprompt]=useState("");
      const[response,setresponse]=useState("");
      const[error,seterror]=useState("");
+     const[active,setactive]=useState(null);
+
+     const faq=[{
+      question:"What is sasto pasal?",
+      answer:"Sasto pasal is platform where you can get affordable price for clothes,gadet",
+     },
+     {
+         question:"What is sasto pasal?",
+      answer:"Sasto pasal is platform where you can get affordable price for clothes,gadet",
+     }  
+
+]
+
+
+      //toggle index
+      function toggleindex(index){
+        setactive(index);
+      }
+
 
   const apiKEy=import.meta.env.VITE_GEMINI_AI_API_KEY;
 
@@ -26,6 +45,7 @@ seterror("plese enter the prompt");
       const Genai=new GoogleGenerativeAI(apiKEy);
       const model =Genai.getGenerativeModel({model: "gemini-1.5-flash"})
       const result=await model.generateContent(`${role} ${prompt}`);
+      setprompt("")
    
       const textresponse = result.response.text();
     setresponse(textresponse);
@@ -63,6 +83,29 @@ return(
   >
     Send
   </button>
+
+
+  <div className="w-full max-w-md mx-auto mt-6 space-y-4">
+  {faq.map((item, index) => (
+    <div
+      key={index}
+      className="border border-gray-300 rounded-xl p-4 bg-white dark:bg-gray-900 dark:border-gray-600 shadow"
+    >
+      <div
+        onClick={() => toggleindex(index)}
+        className="cursor-pointer font-semibold text-black dark:text-white"
+      >
+        {item.question}
+      </div>
+      {active === index && (
+        <div className="mt-2 text-gray-700 dark:text-gray-300">
+          {item.answer}
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
 </div>
 
 {error && (
@@ -77,6 +120,10 @@ return(
   </div>
 )}
 </div>
+
+
+
+
 </>
 )
 }
