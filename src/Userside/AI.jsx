@@ -17,9 +17,15 @@ function Ai(){
       answer:"Sasto pasal is platform where you can get affordable price for clothes,gadet",
      },
      {
-         question:"What is sasto pasal?",
-      answer:"Sasto pasal is platform where you can get affordable price for clothes,gadet",
+       question:"What products does Sasto Pasal sell?",
+       answer:"Sasto pasal sell clothing , Gadgets",
+     },
+     {
+      question:"Why are the prices lower at Sasto Pasal?",
+      answer:" Sasto Pasal sources its products directly from manufacturers or wholesalers, reducing middlemen costs. It also operates on low-margin, high-volume strategy to keep prices affordable."
+
      }  
+     
 
 ]
 
@@ -95,7 +101,7 @@ return(
         onClick={() => toggleindex(index)}
         className="cursor-pointer font-semibold text-black dark:text-white"
       >
-        {item.question}
+       <div className=""> {item.question}</div>
       </div>
       {active === index && (
         <div className="mt-2 text-gray-700 dark:text-gray-300">
