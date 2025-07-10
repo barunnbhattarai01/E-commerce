@@ -70,7 +70,7 @@ seterror("plese enter the prompt");
 return(
 
 <>
-<div className="h-screen w-auto bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black">
+<div className="h-screen min-w-auto bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black">
   <div className="flex flex-col gap-4 items-center mx-auto  dark:text-white w-80 md:w-96 shadow-lg rounded-2xl p-6 bg-white dark:bg-gray-900">
   <label className="text-2xl font-semibold text-black dark:text-white">
     Ask about sasto pasal
@@ -103,9 +103,12 @@ return(
       >
        <div className=""> {item.question}</div>
       </div>
+
       {active === index && (
-        <div className="mt-2 text-gray-700 dark:text-gray-300">
+        <div className="mt-2 text-gray-700 dark:text-gray-300 cursor-pointer" onClick={()=>setactive(null)}>
+      <div className ="" >
           {item.answer}
+          </div>
         </div>
       )}
     </div>
