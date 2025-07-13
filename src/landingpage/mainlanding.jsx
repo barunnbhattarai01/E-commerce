@@ -196,7 +196,7 @@ gsap.fromTo(
           </div>
         </div>
         <div>
-          <img className="w-full" src="/banner-image.png" alt="banner image" />
+          <img className="w-full drop-shadow-lg rounded-2xl" src="/man.jpg" alt="banner image" />
         </div>
       </section>
 
@@ -274,7 +274,8 @@ gsap.fromTo(
       {/* Footer */}
       <footer className="bg-black py-[125px] text-white flex flex-col gap-24 px-14 md:items-center md:gap-[415px] md:flex-row md:justify-between md:px-[100px]">
         <div className="flex flex-col items-start gap-8">
-          <img src="/FASHION.png" alt="Fashion Logo" />
+          <h1 className="text-6xl font-bold ">Sasto pasal</h1>
+        
           <p className="text-xl text-[#8E8E8E] md:text-2xl font-normal">
             Complete your style with awesome <br /> clothes from us.
           </p>
