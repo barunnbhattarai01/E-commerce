@@ -26,7 +26,7 @@ if(stored){
   
 
   return (
-    <div className="p-6 dark:text-white bg-teal-200 dark:bg-black h-screen">
+    <div className="p-6 dark:text-white bg-teal-200 dark:bg-black min-h-screen">
       <h2 className="text-2xl font-bold mb-6"> Products in Cart</h2>
 
       {items.length===0 ? (
@@ -37,7 +37,7 @@ if(stored){
             
             <div
               key={item.id}
-              className="bg-white dark:bg-gray-900 rounded-xl shadow p-4 flex flex-col md:flex-row gap-4"
+              className="bg-white dark:bg-gray-900 rounded-xl shadow p-4 flex flex-col md:flex-row gap-4 scale-100 hover:scale-96"
             >
               <img
                 src={item?.text?.image || ""}        //||"" is fallback error and ?(optional chaining operator ) safely access in object coz sometime something can be null in object

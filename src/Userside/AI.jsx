@@ -70,7 +70,8 @@ seterror("plese enter the prompt");
 return(
 
 <>
-<div className="h-screen min-w-auto bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black">
+<div className=" min-h-screen min-w-auto
+ bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black">
   <div className="flex flex-col gap-4 items-center mx-auto  dark:text-white w-80 md:w-96 shadow-lg rounded-2xl p-6 bg-white dark:bg-gray-900">
   <label className="text-2xl font-semibold text-black dark:text-white">
     Ask about sasto pasal
@@ -90,7 +91,7 @@ return(
     Send
   </button>
 
-
+ 
   <div className="w-full max-w-md mx-auto mt-6 space-y-4">
   {faq.map((item, index) => (
     <div
