@@ -22,6 +22,8 @@ function Product(){
         product.title.toLowerCase().includes(query.toLowerCase())
     )
 
+  
+
 return(
 <>
 
@@ -61,7 +63,7 @@ return(
           <div className="flex justify-center mt-4">
             <button
               className="border border-black dark:border-white rounded-xl px-4 py-2 hover:bg-blue-100 cursor-pointer dark:hover:bg-blue-800 transition"
-              onClick={() =>setCartItems((prev)=>[...prev,pro])}
+              onClick={() =>setCartItems((prev)=>[...prev,{...pro,cardId:Date.now()+Math.random()}])}
             >
               Add to Cart
             </button>

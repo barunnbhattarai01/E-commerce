@@ -6,8 +6,8 @@ function Cart() {
  const {cartItems,setCartItems}=useContext(Usercontext);
 
   //to remove the product
-  function handleremove(itemtoremove){
-    const items =cartItems.filter((item)=>item.id !==itemtoremove)
+  function handleremove(removeCardId){
+    const items =cartItems.filter((item)=>item.cardId !==removeCardId)
     setCartItems(items);
   }
 
@@ -27,7 +27,7 @@ function Cart() {
           {cartItems.map((item) => (
             
             <div
-              key={item.id}
+              key={item.cardId}
               className="bg-white dark:bg-gray-900 rounded-xl shadow p-4 flex flex-col md:flex-row gap-4 scale-100 hover:scale-96"
             >
               <img
@@ -44,7 +44,7 @@ function Cart() {
                 </p>
                 <button
                   className="mt-2 px-4 py-1 bg-red-500 text-white rounded hover:bg-red-600 cursor-pointer"
-                  onClick={()=>{handleremove(item.id)}}
+                  onClick={()=>{handleremove(item.cardId)}}
                 >
                   Remove
                 </button>
