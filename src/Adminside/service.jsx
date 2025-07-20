@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext,useEffect } from "react"
 import { db } from "../firebase/firebase.config";
 import { collection,addDoc,serverTimestamp } from "firebase/firestore";
 import Product from "../Userside/product";
@@ -10,9 +10,6 @@ import usercontext from "../context/usercontext";
 
 
 function Services(){
-
-
-
 
 //search
 

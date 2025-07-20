@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 function Intro() {
   return (
@@ -18,10 +17,8 @@ function Intro() {
           >
             <div className="absolute inset-0 bg-red-800 opacity-20"></div>
           </div>
-          <motion.div
-          initial={{scale:0.5,opacity:0 }}
-          animate={{scale:1,opacity:1}}
-          transition={{delay:0.4}}
+          <div
+          
           className="flex flex-wrap h-48 w-72 ml-auto mt-64 mr-56 text-2xl">
             Welcome to Sasto Pasal your one-stop shop for quality products at
             unbeatable prices. We’re here to make shopping easy, fun, and
@@ -32,7 +29,7 @@ function Intro() {
             >
               About us
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     </>

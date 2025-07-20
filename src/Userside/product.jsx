@@ -1,12 +1,10 @@
-import React,{useEffect} from "react";
-import { useDispatch } from "react-redux";
-import { addtochart } from "../store/tosilces";
-import { motion } from "framer-motion";
+import React,{useContext, useEffect} from "react";
+import Usercontext from "../context/usercontext";
 
 function Product(){
     const[search,setsearch]=React.useState([]);
     const[query,setquery]=React.useState("");
-    const dispatch=useDispatch();
+    const {setCartItems}=useContext(Usercontext);
     
     useEffect(()=>
     {
@@ -44,11 +42,8 @@ return(
       </p>
     ) : (
       filteredproduct.map((pro, index) => (
-        <motion.div
-        initial={{scale:0.9,opacity:0}}
-        whileInView={{scale:1,opacity:1}}
-        transition={{delay:0.4}}
-          key={index}
+        <div
+        
           className="relative text-black bg-white dark:bg-gray-900 dark:text-white p-6 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 w-80 md:w-96 hover:shadow-2xl transition"
         >
           <img
@@ -66,12 +61,12 @@ return(
           <div className="flex justify-center mt-4">
             <button
               className="border border-black dark:border-white rounded-xl px-4 py-2 hover:bg-blue-100 cursor-pointer dark:hover:bg-blue-800 transition"
-              onClick={() => dispatch(addtochart(pro))}
+              onClick={() =>setCartItems((prev)=>[...prev,pro])}
             >
               Add to Cart
             </button>
           </div>
-        </motion.div>
+        </div>
       ))
     )}
   </div>
@@ -84,4 +79,3 @@ return(
 
 export default Product;
 
-//in this section i learned to filter the array and then mapping all them 
