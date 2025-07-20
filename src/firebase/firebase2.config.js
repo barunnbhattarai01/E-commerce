@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getApps } from "firebase/app";
 
@@ -26,7 +25,6 @@ else{
 }
 
 
-const analytics = getAnalytics(secondapp);
 const auth2=getAuth(secondapp);
 
 

@@ -201,9 +201,9 @@ gsap.fromTo(
       </section>
 
       {/* brand logooo */}
-      <section className="flex flex-col justify-center items-center gap-[121px] my-16 py-[61px] md:flex-row dark:bg-white " ref={divref}>
+      <section className="flex flex-col justify-center items-center gap-[121px] mt-16 py-[61px] md:flex-row dark:bg-white " ref={divref}>
         {["hm", "obey", "shopify", "lacoste", "levis", "amazon"].map((brand, index) => (
-          <div key={index} className="w-[150px]">
+          <div key={index} className="w-[150px] ">
             <img src={`/${brand}.png`} alt={brand} />
           </div>
         ))}
@@ -212,7 +212,7 @@ gsap.fromTo(
       {/* new arraivals */}
       <section className="flex flex-col container items-start gap-28 mx-auto px-[10px] dark:bg-black dark:text-white" ref={arrivals} >
         <div className="relative text-black dark:bg-black dark:text-white">
-          <h2 className="text-4xl font-black after:content-oval after:absolute after:left-[50%] after:-bottom-2.5 after:-z-10 md:text-5xl">NEW ARRIVALS</h2>
+          <h2 className="text-4xl font-black  md:text-5xl">NEW ARRIVALS</h2>
         </div>
         <div className="flex flex-col gap-24 md:flex-row md:justify-between md:items-stretch">
           {["hoddiee", "coats", "T-shirts"].map((img, idx) => (
@@ -233,7 +233,7 @@ gsap.fromTo(
       {/* young section */}
       <section className="flex flex-col container items-start my-[190px] gap-28 mx-auto dark:bg-black dark:text-white" ref={youngfav}>
         <div className="relative text-black dark:bg-black dark:text-white">
-          <h2 className="text-4xl font-black after:content-oval after:absolute after:left-[50%] after:-bottom-2.5 after:-z-10 md:text-5xl">Young’s Favourite</h2>
+          <h2 className="text-4xl font-black  md:text-5xl">Young’s Favourite</h2>
         </div>
         <div className="flex flex-col gap-12 md:flex-row md:justify-between md:items-stretch">
           {["fav-1", "fav-2"].map((img, idx) => (
