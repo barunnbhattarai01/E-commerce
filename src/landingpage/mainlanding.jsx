@@ -43,6 +43,9 @@ const togglemenu = () => {
    const arrivals =useRef(null);//arrivals section
    const youngfav =useRef(null); //for younf fav section
    const downloadref=useRef(null)
+
+
+
   useEffect(()=>
   {
    gsap.fromTo(    
@@ -58,6 +61,8 @@ boxref.current,    //reference to current div
     toggleActions:"play none none reverse",   //play:scrooling down reverese:scrooll back up none :nothing
   }
 } ),
+
+
 //for breand
 gsap.fromTo(
 divref.current,
@@ -128,10 +133,10 @@ gsap.fromTo(
     <div className="overflow-x-hidden">
     <div className="dark:bg-black bg-slate-100">
       {/*desktop navbar */}
-      <nav className="hidden md:flex bg-white text-black w-full uppercase tracking-[0.22px] md:text-[22px] p-11 "> {/*tracking=letterspacing  */}
-        <div className="container mx-auto flex flex-row justify-between items-center">
+      <nav className="hidden md:flex bg-white text-black w-full uppercase tracking-[0.22px] md:text-[22px] p-6 "> {/*tracking=letterspacing  */}
+        <div className="container mx-auto flex flex-row justify-between items-center ">
           <div className="font-bold text-4xl">
-           SASTO PASAL
+           <img src="/image.png" className="w-40 h-20 "/>
           </div>
           <ul className="hidden md:flex flex-row gap-16 justify-end items-center">
             <li><Link to='/'>Home</Link></li>
@@ -273,8 +278,8 @@ gsap.fromTo(
 
       {/* Footer */}
       <footer className="bg-black py-[125px] text-white flex flex-col gap-24 px-14 md:items-center md:gap-[415px] md:flex-row md:justify-between md:px-[100px]">
-        <div className="flex flex-col items-start gap-8">
-          <h1 className="text-6xl font-bold ">Sasto pasal</h1>
+        <div className="flex flex-col items-start gap-8 ">
+           <img src="/image.png" className="w-40 h-15 rounded-4xl"/>
         
           <p className="text-xl text-[#8E8E8E] md:text-2xl font-normal">
             Complete your style with awesome <br /> clothes from us.

@@ -21,11 +21,10 @@ function Navbar(){
   {
   if (theme==="dark"){
     document.documentElement.classList.add("dark");
-    document.body.style.backgroundColor="black"
+  
   }
   else{
     document.documentElement.classList.remove("dark");
-    document.body.style.backgroundColor="white"
   }
 
   localStorage.setItem("theme",theme)
@@ -55,7 +54,9 @@ return(
   <>
   {/*desktop view*/}
  <div className="hidden md:flex bg-white shadow-lg h-24 items-center ">
-  <div className="flex items-center"><img src="./logo-3030.webp" className="h-10 w-20 "/></div>
+  <div className="flex items-center">
+              <img src="/image.png" className="w-40 h-20 "/>
+    </div>
   <div className="text-2xl mx-auto flex space-x-16 ">
   <Link to="/home" className=" ">Home</Link>
     <Link to="/items" className="">Items</Link>

@@ -96,20 +96,20 @@ return(
   {faq.map((item, index) => (
     <div
       key={index}
-      className="border border-gray-300 rounded-xl p-4 bg-white dark:bg-gray-900 dark:border-gray-600 shadow"
+      className="border border-gray-300 rounded-xl p-4 bg-blue-300 dark:bg-gray-900 dark:border-gray-600 shadow"
     >
       <div
         onClick={() => toggleindex(index)}
-        className="cursor-pointer font-semibold text-black dark:text-white"
+        className="cursor-pointer font-bold text-black  bg-blue-300 rounded-2xl p-1 dark:text-black "
       >
-       <div className=""> {item.question}</div>
+     {item.question}
       </div>
 
       {active === index && (
-        <div className="mt-2 text-gray-700 dark:text-gray-300 cursor-pointer" onClick={()=>setactive(null)}>
-      <div className ="" >
+        <div className="mt-2 text-gray-700 dark:text-gray-300 font-bold cursor-pointer" onClick={()=>setactive(null)}>
+     
           {item.answer}
-          </div>
+          
         </div>
       )}
     </div>
