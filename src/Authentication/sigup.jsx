@@ -26,7 +26,7 @@ try{
 
 }catch(err){
 console.error("error",err)
-seterror("Already sign  up using this gmail")
+seterror(err.message)
 }
 
 

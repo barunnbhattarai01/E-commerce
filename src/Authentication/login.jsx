@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { auth } from "../firebase/firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -18,13 +18,13 @@ const info=async(e)=>{
 
  try{
    await signInWithEmailAndPassword(auth,username,password);
-   console.log("login sucessfully");
-   navigate("/home")
+   console.log("Login sucessfully");
+  navigate("/home")
 
  }
  catch(err){
     console.error("Error",err);
-   seterror("invalid password")
+   seterror(err.message)
  }
 
 

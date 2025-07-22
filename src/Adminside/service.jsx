@@ -39,12 +39,12 @@ if(!file) return;
 
 setloading(true)
 
-const data = new FormData(); //required to send  files via post request and also construcer function
-data.append("file",file); //file key is fixed for cloudinary
-data.append("upload_preset","Black Devil");//upload preset
+const data = new FormData(); 
+data.append("file",file); 
+data.append("upload_preset","Black Devil");
 data.append("cloud_name","dsql24lj1");
 
-// fetching the images from cloudinary just we upload from services
+
 
 
  const res= await fetch("https://api.cloudinary.com/v1_1/dsql24lj1/image/upload",{
@@ -52,7 +52,7 @@ data.append("cloud_name","dsql24lj1");
     body:data ,
   }
   )
-  const imagesurl = await res.json();    //res.json convert server response into usable plain object
+  const imagesurl = await res.json();   
 //  console.log(imagesurl.url)
   setimg(imagesurl.url)
 setloading(false)
@@ -124,11 +124,9 @@ if(saveddata){
   {
   if (theme==="dark"){
     document.documentElement.classList.add("dark");
-    document.body.style.backgroundColor="black"
   }
   else{
     document.documentElement.classList.remove("dark");
-    document.body.style.backgroundColor="white"
   }
 
   localStorage.setItem("theme",theme)
