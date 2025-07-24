@@ -17,7 +17,7 @@ function Cart() {
   
 
   return (
-    <div className="p-6 dark:text-white bg-teal-200 dark:bg-black min-h-screen">
+    <div className="p-6 dark:text-white bg-teal-200 dark:bg-black min-h-screen mt-24 ">
       <h2 className="text-2xl font-bold mb-6"> Products in Cart</h2>
 
       {cartItems.length===0 ? (

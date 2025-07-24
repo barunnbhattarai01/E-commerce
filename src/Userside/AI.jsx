@@ -71,7 +71,7 @@ return(
 
 <>
 <div className=" min-h-screen min-w-auto
- bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black">
+ bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black mt-24">
   <div className="flex flex-col gap-4 items-center mx-auto  dark:text-white w-80 md:w-96 shadow-lg rounded-2xl p-6 bg-white dark:bg-gray-900">
   <label className="text-2xl font-semibold text-black dark:text-white">
     Ask about sasto pasal
@@ -125,7 +125,7 @@ return(
 )}
 
 {response && (
-  <div className="dark:text-white text-black text-lg md:text-2xl shadow-lg rounded-lg p-4 bg-white dark:bg-gray-900 w-full max-w-md mx-auto mt-4">
+  <div className="dark:text-white text-black text-lg md:text-2xl shadow-lg rounded-lg p-4 bg-white-300 max-w-300 dark:bg-gray-900  mx-auto mt-4">
     <ReactMarkdown>{response}</ReactMarkdown>
   </div>
 )}

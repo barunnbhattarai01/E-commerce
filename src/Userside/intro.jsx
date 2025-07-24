@@ -4,7 +4,7 @@ function Intro() {
   return (
     <>
 
-      <div className=" text-white font-sans w-full h-screen bg-gradient-to-r from-black to-red-900 ">
+      <div className=" text-white font-sans w-full h-screen bg-gradient-to-r from-black to-red-900 mt-24">
         <div className="relative overflow-hidden w-full h-full  p-4 md:p-6">
           <div
             className="absolute inset-0 bg-no-repeat opacity-20 pointer-events-none"

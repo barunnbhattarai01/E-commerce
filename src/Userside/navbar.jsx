@@ -53,7 +53,7 @@ function Navbar(){
 return(
   <>
   {/*desktop view*/}
- <div className="hidden md:flex bg-white shadow-lg h-24 items-center ">
+ <div className="hidden md:flex bg-white shadow-lg h-24 items-center  z-50 w-full fixed top-0" >
   <div className="flex items-center">
               <img src="/image.png" className="w-40 h-20 "/>
     </div>

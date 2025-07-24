@@ -133,7 +133,7 @@ gsap.fromTo(
     <div className="overflow-x-hidden">
     <div className="dark:bg-black bg-slate-100">
       {/*desktop navbar */}
-      <nav className="hidden md:flex bg-white text-black w-full uppercase tracking-[0.22px] md:text-[22px] p-6 "> {/*tracking=letterspacing  */}
+      <nav className="hidden md:flex bg-white text-black w-full uppercase tracking-[0.22px] md:text-[22px] p-6 fixed z-100"> {/*tracking=letterspacing  */}
         <div className="container mx-auto flex flex-row justify-between items-center ">
           <div className="font-bold text-4xl">
            <img src="/image.png" className="w-40 h-20 "/>
