@@ -54,12 +54,12 @@ return(
   <>
   {/*desktop view*/}
  <div className="hidden md:flex bg-white shadow-lg h-24 items-center  z-50 w-full fixed top-0" >
-  <div className="flex items-center">
-              <img src="/image.png" className="w-40 h-20 "/>
+  <div className="flex items-center text-2xl font-bold px-3">
+             SASTO PASAL
     </div>
   <div className="text-2xl mx-auto flex space-x-16 ">
   <Link to="/home" className=" ">Home</Link>
-    <Link to="/items" className="">Items</Link>
+    <Link to="/items" className="">Marketplace</Link>
 <Link to="/products" className="">Products</Link>
  <Link to="/chart" className="">Chart</Link>
 <button className="" onClick={toggle}>{theme=="light"?"🌑":"☀️ "}</button>
@@ -93,7 +93,7 @@ return(
   {open &&(
   <div className="flex flex-col items-start text-black text-base gap-4 px-2 py-2  w-full z-10 absolute dark:text-black shadow-lg bg-gradient-to-r from-yellow-200 to-yellow-300">
   <Link to="/home" className=""  onClick={togglemenu}>Home</Link>
-    <Link to="/items" className="" onClick={togglemenu}>Items</Link>
+    <Link to="/items" className="" onClick={togglemenu}>Marketplace</Link>
 <Link to="/products" className="" onClick={togglemenu}>Products</Link>
  <Link to="/chart" className="" onClick={togglemenu}>Chart</Link>
    <button className="" onClick={()=>navigate("/")}>{<LogOut size={22}/>}</button>

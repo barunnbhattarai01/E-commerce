@@ -202,6 +202,7 @@ return(
         onChange={(e) => setname(e.target.value)}
         placeholder="e.g.Mobile Phone"
         className="mt-1 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent px-4 py-2 text-black dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
+      required
       />
     </div>
 
@@ -214,6 +215,7 @@ return(
         placeholder="Write about the product like price..."
         className="mt-1 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent px-4 py-2 text-black dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
         rows={4}
+        required
       />
     </div>
 
@@ -231,6 +233,7 @@ return(
         type="file"
         onChange={handleimages}
         className="w-full border border-gray-300 dark:border-gray-600 rounded-xl p-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+       required
       />
     </div>
 

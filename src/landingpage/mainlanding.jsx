@@ -130,15 +130,15 @@ gsap.fromTo(
    
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden ">
     <div className="dark:bg-black bg-slate-100">
       {/*desktop navbar */}
       <nav className="hidden md:flex bg-white text-black w-full uppercase tracking-[0.22px] md:text-[22px] p-6 fixed z-100"> {/*tracking=letterspacing  */}
         <div className="container mx-auto flex flex-row justify-between items-center ">
-          <div className="font-bold text-4xl">
-           <img src="/image.png" className="w-40 h-20 "/>
+          <div className="font-bold text-2xl">
+           SASTO PASAL
           </div>
-          <ul className="hidden md:flex flex-row gap-16 justify-end items-center">
+          <ul className="hidden md:flex flex-row gap-16 justify-end items-center text-2xl">
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/feedback'>Feedback</Link></li>
             <li><Link to='/img'>Images</Link></li>
@@ -157,14 +157,15 @@ gsap.fromTo(
         </div>
         </nav>
       {/* navbar for mobile */}
-      <div className="md:hidden flex justify-end items-center p-3 bg-white relative z-50 ">
+      <div className="md:hidden flex justify-between items-center p-3 h-24 bg-white relative z-50 ">
+        <div className=" font-semibold text-xl">SASTO PASAL</div>
           <button onClick={togglemenu}>
             {open ? <X size={33} /> : <Menu size={33} />}
           </button>
         </div>
 
         {open && (
-          <div className="flex flex-col items-start px-2 py-2 gap-5 text-base z-10 absolute w-full bg-black text-white "
+          <div className="flex flex-col items-start px-2 py-2 gap-5 text-xl z-10 absolute w-full bg-black text-white "
           >
             <p onClick={togglemenu}>Home</p>
             <Link to='img' onClick={togglemenu}>Images</Link>
@@ -184,7 +185,7 @@ gsap.fromTo(
 
       {/*hero section*/}
       <section className="flex flex-col container mx-auto bg-[#F4F6F5] rounded-[59px] pt-16 px-10 md:items-center md:px-20 
-      md:pt-[68px] md:flex-row md:justify-between gap-10 z-30 dark:bg-black dark:text-white" ref={boxref}>
+      md:pt-[100px] md:flex-row md:justify-between gap-10 z-30 dark:bg-black dark:text-white " ref={boxref}>
         <div className="flex flex-col items-start text-black md:pb-[68px] z-10 dark:bg-black dark:text-white">
           <h1 className="text-4xl font-black leading-[125%] sm:text-5xl md:text-[96px] md:leading-[125%]">
              <span>LET’S</span><br />
