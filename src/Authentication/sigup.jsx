@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,10 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Signup(){
 
- const[username,setusername]=React.useState("");
- const[password,setpassword]=React.useState("");
- const[error,seterror]=React.useState("");
- const[signup,setsignup]=React.useState("");
+ const[username,setusername]=useState("");
+ const[password,setpassword]=useState("");
+ const[error,seterror]=useState("");
+ const[signup,setsignup]=useState("");
+ const[loading,setloading]=useState(false);
 const navigate=useNavigate()
 
 const signinfo= async(e)=>{
@@ -17,16 +18,18 @@ const signinfo= async(e)=>{
       e.preventDefault();
       seterror("")
 try{
+  setloading(true);
     await createUserWithEmailAndPassword(auth,username,password);
     setpassword("");
     setusername("");
     seterror("")
     setsignup("Sucessfully sign up");
-     
+     setloading(false)
 
 }catch(err){
 console.error("error",err)
 seterror(err.message)
+setloading(false)
 }
 
 
@@ -71,7 +74,7 @@ return(
           type="submit"
           className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-200"
         >
-          Sign up
+          {loading?"Signing up.....":"signup"}
         </button>
         <Link to="/login" className="text-center bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-2xl">Log in</Link>
          <div className="text-center">{signup && <p className="text-blue-800 font-bold">{signup}</p>}</div>

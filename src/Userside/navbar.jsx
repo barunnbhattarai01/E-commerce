@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { Menu,X } from "lucide-react";  //menu and X are the commpoenent of react lucide
+import { Menu,X } from "lucide-react";  
 import { useNavigate } from "react-router-dom";
 import { LogOut } from "lucide-react";
 
@@ -10,7 +10,6 @@ function Navbar(){
   const navigate =useNavigate();
 
   const[open,setopen]=React.useState(false)
-  //experminating the dark mode in chart button for now for learning
 
   const[theme,settheme]=React.useState(()=>{
     return localStorage.getItem('theme') 
@@ -30,7 +29,7 @@ function Navbar(){
   localStorage.setItem("theme",theme)
 
 
-  },[theme] ) //useeffect run when the themes change and themese change through the button
+  },[theme] ) 
 
 
   const toggle=()=>{

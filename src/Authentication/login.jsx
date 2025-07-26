@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 
 function Login(){
 
-const[username,setusername]=React.useState("");
-const[password,setpassword]=React.useState("");
-const [error,seterror]=React.useState("");
+const[username,setusername]=useState("");
+const[password,setpassword]=useState("");
+const [error,seterror]=useState("");
+const[loading,setloading]=useState(false);
 const navigate =useNavigate();
 
 const info=async(e)=>{
@@ -17,6 +18,7 @@ const info=async(e)=>{
  seterror("");
 
  try{
+  setloading(true);
    await signInWithEmailAndPassword(auth,username,password);
    console.log("Login sucessfully");
   navigate("/home")
@@ -66,7 +68,7 @@ return(
           type="submit"
           className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-200"
         >
-          Log In
+          {loading?"Logining...":"Login"}
         </button>
 
         <div className="flex justify-between text-sm text-blue-600 mt-2">

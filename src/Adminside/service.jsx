@@ -75,8 +75,8 @@ const data={
 
 
 try{
- await addDoc(collection(db,'detail'),data);
- alert("product added to items")
+ await addDoc(collection(db,'admin'),data);
+ 
 setdatas((prev)=>{
 const newdata=[
   ...prev,
@@ -219,12 +219,7 @@ return(
       />
     </div>
 
-    {/* Upload Status */}
-    <div>
-      <span className="text-sm italic text-gray-500 dark:text-gray-400">
-        {loading ? "Uploading..." : "Images ready"}
-      </span>
-    </div>
+   
 
     {/* Image Upload */}
     <div>
@@ -243,7 +238,7 @@ return(
         type="submit"
         className="w-full bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-800 text-white font-semibold py-2 rounded-xl shadow-md transition duration-300"
       >
-        Sell Now 🚀
+        {loading ? "Uploading..." : "Sell Now 🚀"}
       </button>
     </div>
   </form>

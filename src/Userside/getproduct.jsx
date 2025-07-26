@@ -9,7 +9,7 @@ function Getdata() {
 
   useEffect(() => {
     const fetchdata = async () => {
-      const q = query(collection(db, "detail"), orderBy("createdAt", "desc"));
+      const q = query(collection(db, "admin"), orderBy("createdAt", "desc"));
       const document = await getDocs(q);
 
       const eventlist = document.docs.map((doc) => ({      //document is  Querysnapshot and  document.docs is an array of DocumentSnapshot

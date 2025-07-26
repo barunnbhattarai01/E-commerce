@@ -11,6 +11,7 @@ function Ai(){
      const[response,setresponse]=useState("");
      const[error,seterror]=useState("");
      const[active,setactive]=useState(null);
+     const [loading,setloading]=useState(false)
 
      const faq=[{
       question:"What is sasto pasal?",
@@ -47,6 +48,7 @@ seterror("plese enter the prompt");
    seterror('')
 
   try{
+    setloading(true);
     const role =`you are sasto pasal, ai assistant for sasto pasal , a affordable ,non toxic shop where you can buy luxires product`
       const Genai=new GoogleGenerativeAI(apiKEy);
       const model =Genai.getGenerativeModel({model: "gemini-1.5-flash"})
@@ -55,6 +57,7 @@ seterror("plese enter the prompt");
    
       const textresponse = result.response.text();
     setresponse(textresponse);
+    setloading(false);
 
   }
 
@@ -88,7 +91,7 @@ return(
     onClick={generatecontent} 
     className="w-full shadow-md rounded-2xl py-2 text-white bg-blue-500 hover:bg-blue-600 transition duration-200"
   >
-    Send
+    {loading?"Please wait...":"send"}
   </button>
 
  
@@ -125,6 +128,7 @@ return(
 )}
 
 {response && (
+  
   <div className="dark:text-white text-black text-lg md:text-2xl shadow-lg rounded-lg p-4 bg-white-300 max-w-300 dark:bg-gray-900  mx-auto mt-4">
     <ReactMarkdown>{response}</ReactMarkdown>
   </div>
