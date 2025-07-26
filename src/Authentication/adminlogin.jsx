@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { auth2 } from "../firebase/firebase2.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -8,10 +8,11 @@ import usercontext from "../context/usercontext";
 
 function Adminlogin(){
 
-const[username,setusername]=React.useState("");
-const[password,setpassword]=React.useState("");
-const [error,seterror]=React.useState("");
-const[admin,setadmin]=React.useState("")
+const[username,setusername]=useState("");
+const[password,setpassword]=useState("");
+const [error,seterror]=useState("");
+const[admin,setadmin]=useState("");
+const[loading,setloading]=useState(false);
 const {setuser}=useContext(usercontext);
 const navigate =useNavigate();
 
@@ -20,6 +21,7 @@ const info=async(e)=>{
  seterror("");
 
  try{
+  setloading(true);
    await signInWithEmailAndPassword(auth2,username,password);
    setuser(admin)
    console.log("login sucessfully");
@@ -29,6 +31,7 @@ const info=async(e)=>{
  catch(err){
     console.error("Error",err);
    seterror(err.message);
+   setloading(false);
  }
 
 
@@ -82,7 +85,7 @@ return(
           type="submit"
           className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-200"
         >
-          Log In
+         {loading?"logining....":"Login"}
         </button>
 
         <div className="flex justify-between text-sm text-blue-600 mt-2">

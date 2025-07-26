@@ -27,6 +27,7 @@ const info=async(e)=>{
  catch(err){
     console.error("Error",err);
    seterror(err.message)
+   setloading(false)
  }
 
 
