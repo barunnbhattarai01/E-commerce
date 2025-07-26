@@ -22,8 +22,6 @@ function Product(){
         product.title.toLowerCase().includes(query.toLowerCase())
     )
 
-  
-
 return(
 <>
 
@@ -37,7 +35,7 @@ return(
     />
   </label>
 
-  <div className="flex flex-wrap gap-10 justify-center p-10 dark:text-white bg-teal-200 min-h-200 dark:bg-black">
+  <div className="flex flex-wrap gap-10 justify-center p-10 dark:text-white bg-teal-200 min-h-screen dark:bg-black">
     {filteredproduct.length === 0 ? (
       <p className="text-xl font-semibold text-gray-500 dark:text-gray-400 mt-10">
         No product found
@@ -46,7 +44,7 @@ return(
       filteredproduct.map((pro, index) => (
         <div
         
-          className="relative h-120 text-black bg-white dark:bg-gray-700 dark:text-white p-6 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 w-80 md:w-96  hover:shadow-2xl transition"
+          className="relative text-black bg-white dark:bg-gray-900 dark:text-white p-6 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 w-80 md:w-96 hover:shadow-2xl transition"
         >
           <img
             src={pro.image}
@@ -80,4 +78,3 @@ return(
 }
 
 export default Product;
-
