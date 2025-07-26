@@ -89,8 +89,8 @@ console.error("Error happened",err)
 
   {open && (
     <div className="flex flex-col items-start px-2 py-2 gap-5 text-base z-10 absolute w-full bg-black text-white ">
-      <p onClick={togglemenu}>Home</p>
-      <Link to='img' onClick={togglemenu}>Images</Link>
+      <Link to="/" onClick={togglemenu}>Home</Link>
+      <Link to='/img' onClick={togglemenu}>Images</Link>
       <Link to='/feedback' onClick={togglemenu}>Feedback</Link>
       <Link to="/login" onClick={togglemenu}>Login</Link>
       <button

@@ -76,7 +76,7 @@ function Photo() {
           <Link to="/" onClick={togglemenu}>
             Home
           </Link>
-          <Link to="img" onClick={togglemenu}>
+          <Link to="/img" onClick={togglemenu}>
             Images
           </Link>
           <Link to="/feedback" onClick={togglemenu}>
@@ -96,7 +96,7 @@ function Photo() {
       )}
 
       <h1 className="text-center text-5xl font-bold mt-10  dark:text-white" > Images Gallery</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 min-h-screen md:min-h-auto">
         {photos.map((src, index) => (
           <div
             className="m-4 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800"

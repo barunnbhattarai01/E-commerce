@@ -52,7 +52,7 @@ function Navbar(){
 return(
   <>
   {/*desktop view*/}
- <div className="hidden md:flex bg-white shadow-lg h-24 items-center  z-50 w-full fixed top-0" >
+ <div className="hidden md:flex bg-white shadow-lg h-24  items-center  z-50 w-full fixed top-0" >
   <div className="flex items-center text-2xl font-bold px-3">
              SASTO PASAL
     </div>
@@ -72,12 +72,12 @@ return(
  
 
  {/*toggle X and menu*/}
-   <div className="md:hidden flex justify-end dark:bg-white h-12 bg-blue-300 items-center">
-    <div className="mr-auto font-bold">Sasto Pasal</div>
-    <div className="mr-3"><button className="" onClick={toggle}>{theme==="light"? "☀️":"🌙"}</button>
+   <div className="md:hidden flex justify-end dark:bg-white h-24 bg-blue-300 items-center">
+    <div className="mr-auto font-bold text-3xl">Sasto Pasal</div>
+    <div className="mr-3"><button className="text-3xl" onClick={toggle}>{theme==="light"? "☀️":"🌙"}</button>
 </div>
     <div className="">
-     <button className="dark:text-black" onClick={togglemenu}>{open?<X size={28}/>:<Menu size ={28}/>}</button>
+     <button className="dark:text-black" onClick={togglemenu}>{open?<X size={32}/>:<Menu size ={45}/>}</button>
    {/*  menu and X are the react compomemt so we called like this*/}
   </div>
 
@@ -86,11 +86,11 @@ return(
 
 
  {/*mobile view*/}
- <div className="md:hidden flex flex-col bg-blue-100 ">
+ <div className="md:hidden flex flex-col  bg-blue-100 ">
   
   {/* if open is true which means it is open and when it is open it show below detail*/}
   {open &&(
-  <div className="flex flex-col items-start text-black text-base gap-4 px-2 py-2  w-full z-10 absolute dark:text-black shadow-lg bg-gradient-to-r from-yellow-200 to-yellow-300">
+  <div className="flex flex-col items-start  text-black text-xl gap-4 px-2 py-2  w-full z-10 absolute dark:text-black shadow-lg bg-gradient-to-r from-yellow-200 to-yellow-300">
   <Link to="/home" className=""  onClick={togglemenu}>Home</Link>
     <Link to="/items" className="" onClick={togglemenu}>Marketplace</Link>
 <Link to="/products" className="" onClick={togglemenu}>Products</Link>

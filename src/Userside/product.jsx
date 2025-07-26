@@ -27,7 +27,7 @@ function Product(){
 return(
 <>
 
-  <label className="text-white text-2xl flex flex-col sm:flex-row items-center gap-4 bg-gray-800 px-4 py-2 rounded-lg shadow-lg mt-24">
+  <label className="text-white text-2xl flex flex-col sm:flex-row items-center gap-4 bg-gray-800 px-4 py-2 rounded-lg shadow-lg md:mt-24">
     Search for items
     <input
       type="text"
