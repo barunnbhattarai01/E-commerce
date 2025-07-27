@@ -11,7 +11,7 @@ function Ai(){
      const[response,setresponse]=useState("");
      const[error,seterror]=useState("");
      const[active,setactive]=useState(null);
-     const [loading,setloading]=useState(false)
+     const [loading,setloading]=useState(false);
 
      const faq=[{
       question:"What is sasto pasal?",
@@ -74,7 +74,7 @@ return(
 
 <>
 <div className=" min-h-screen min-w-auto
- bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black mt-24">
+ bg-gradient-to-r from-violet-50 to-sky-50 py-10 dark:bg-gradient-to-r dark:from-black dark:to-black md:mt-24">
   <div className="flex flex-col gap-4 items-center mx-auto  dark:text-white w-80 md:w-96 shadow-lg rounded-2xl p-6 bg-white dark:bg-gray-900">
   <label className="text-2xl font-semibold text-black dark:text-white">
     Ask about sasto pasal

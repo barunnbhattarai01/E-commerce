@@ -140,6 +140,7 @@ console.error("Error happened",err)
           onChange={(e) => setabout(e.target.value)}
           className="ring-1 rounded-2xl focus:ring-blue-700 w-full h-40 p-3 text-base sm:text-lg bg-white  border border-black"
           placeholder="Write your feedback here..."
+          required
         />
       </div>
 
