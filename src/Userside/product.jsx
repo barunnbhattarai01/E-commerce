@@ -1,0 +1,84 @@
+import React,{useContext, useEffect} from "react";
+import { useQuery } from "@tanstack/react-query";
+import Usercontext from "../context/usercontext";
+
+function Product(){
+    const[query,setquery]=React.useState("");
+    const {setCartItems}=useContext(Usercontext);
+    
+    // using react-query to fetch products
+  const { data: products = [], error, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: () =>
+      fetch("https://fakestoreapi.com/products").then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      }),
+  });
+
+    //filterd the product
+
+    const filteredproduct =products.filter(product=>
+        product.title.toLowerCase().includes(query.toLowerCase())
+    )
+    if (isLoading) return <div>Loading products...</div>;
+  if (error) return <div>Error loading products: {error.message}</div>;
+
+
+return(
+<>
+
+  <label className="text-white text-2xl flex flex-col sm:flex-row items-center gap-4 bg-gray-800 px-4 py-2 rounded-lg shadow-lg md:mt-24">
+    Search for items
+    <input
+      type="text"
+      className="text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 border border-white w-full sm:w-64"
+      value={query}
+      onChange={(e) => setquery(e.target.value)}
+    />
+  </label>
+
+  <div className="flex flex-wrap gap-10 justify-center p-10 dark:text-white bg-teal-200 min-h-screen dark:bg-black">
+    {filteredproduct.length === 0 ? (
+      <p className="text-xl font-semibold text-gray-500 dark:text-gray-400 mt-10">
+        No product found
+      </p>
+    ) : (
+      filteredproduct.map((pro, index) => (
+        <div
+        key={index}
+          className="relative text-black bg-white dark:bg-gray-900 dark:text-white p-6 rounded-2xl shadow-xl 
+          border border-gray-200 dark:border-gray-700 w-80   h-115 hover:shadow-2xl transition"
+        >
+          <img
+            src={pro.image}
+            alt={`product-${index}`}
+            className="h-48 w-full object-cover rounded-lg mb-4"
+          />
+
+          <div>
+            <p className="font-bold text-2xl truncate">{pro.title}</p>
+            <p className="text-lg font-semibold mt-1">Price: ${pro.price}</p>
+            <p className="text-sm mt-2 line-clamp-3">{pro.description}</p>
+          </div>
+
+          <div className="flex justify-center mt-4">
+            <button
+              className="border border-black dark:border-white rounded-xl px-4 py-2 hover:bg-blue-100 cursor-pointer dark:hover:bg-blue-800 transition"
+              onClick={() =>setCartItems((prev)=>[...prev,{...pro,cardId:Date.now()+Math.random()}])}
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      ))
+    )}
+  </div>
+</>
+
+)
+
+
+}
+
+export default Product;
