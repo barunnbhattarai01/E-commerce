@@ -20,6 +20,7 @@ import Photo from './landingpage/images.jsx'
 import Feedback from './landingpage/Feedback.jsx'
 import Usercontextprovider from './context/usercontextprovider.jsx'
 import MainLanding from './landingpage/mainlanding.jsx'
+import { QueryClient,QueryClientProvider } from '@tanstack/react-query'
 
 const router=createBrowserRouter(
 
@@ -48,12 +49,15 @@ const router=createBrowserRouter(
 )
 
    
+const querycilent= new QueryClient();
 
    
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+   <QueryClientProvider client={querycilent}>
          <Usercontextprovider>
     <RouterProvider router={router}/> 
     </Usercontextprovider>
+    </QueryClientProvider>
   </StrictMode>,
 )

@@ -1,26 +1,29 @@
 import React,{useContext, useEffect} from "react";
+import { useQuery } from "@tanstack/react-query";
 import Usercontext from "../context/usercontext";
 
 function Product(){
-    const[search,setsearch]=React.useState([]);
     const[query,setquery]=React.useState("");
     const {setCartItems}=useContext(Usercontext);
     
-    useEffect(()=>
-    {
-        fetch('https://fakestoreapi.com/products')
-    
-        .then(res=>res.json())
-        .then(data=>{setsearch(data)
-        })
-        .catch(err=>console.error("error",err))
-    },[])
+    // using react-query to fetch products
+  const { data: products = [], error, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: () =>
+      fetch("https://fakestoreapi.com/products").then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      }),
+  });
 
     //filterd the product
 
-    const filteredproduct =search.filter(product=>
+    const filteredproduct =products.filter(product=>
         product.title.toLowerCase().includes(query.toLowerCase())
     )
+    if (isLoading) return <div>Loading products...</div>;
+  if (error) return <div>Error loading products: {error.message}</div>;
+
 
 return(
 <>
@@ -45,7 +48,7 @@ return(
         <div
         key={index}
           className="relative text-black bg-white dark:bg-gray-900 dark:text-white p-6 rounded-2xl shadow-xl 
-          border border-gray-200 dark:border-gray-700 w-80 md:w-96  h-115 hover:shadow-2xl transition"
+          border border-gray-200 dark:border-gray-700 w-80   h-115 hover:shadow-2xl transition"
         >
           <img
             src={pro.image}
