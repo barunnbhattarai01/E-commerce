@@ -33,7 +33,7 @@
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/sasto-pasal.git
+git clone https://github.com/barunnbhattarai01/E-commerce.git
 cd sasto-pasal
 ```
 
